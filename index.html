@@ -326,6 +326,7 @@
   display: flex;
   align-items: center;
   gap: 48px;            /* 로고 사이 간격 */
+  flex-wrap: wrap;            /* <-- 추가: 화면이 좁아지면 자동 줄바꿈 */
 }
 
 /* 로고가 들어가는 공통 박스 */
@@ -357,19 +358,19 @@
 @media (max-width: 640px) {
   .client-strip {
     gap: 8px;
+    flex-direction: column;        /* 라벨 위, 로고 아래로 세로 정렬 */
+    align-items: flex-start;
   }
   .client-logos {
-    gap: 16px;
+    gap: 16px;                     /* 간격 조금 줄이기 */
   }
-
   .logo-box {
-    width: 180px;
-    height: 72px;
+    width: 180px;                  /* 너무 넓지 않게 */
     padding: 6px 10px;
+    justify-content: flex-start;
   }
-
   .logo-box img {
-    max-height: 44px;          /* 모바일에서도 비율 유지 */
+    max-height: 44px;
   }
 }
 
