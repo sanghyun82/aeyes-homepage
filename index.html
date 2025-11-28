@@ -236,6 +236,20 @@
       height: 100%;
       border: 0;
     }
+    .map-wrapper {
+    margin-top: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(148,163,184,0.35);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+  
+    .map-wrapper iframe {
+    width: 100%;
+    height: 280px;
+    border: 0;
+    }
+
     @media (max-width: 840px) {
       .hero {
         grid-template-columns: 1fr;
@@ -466,6 +480,16 @@
       <li>🏢 회사명: 주식회사 에이아이즈</li>
       <li>📍 주소: 대전광역시 유성구 테크노4로 17 대덕비즈센터 A717</li>
     </ul>
+
+    <div class="map-wrapper">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=YOUR_MAP_EMBED_CODE"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
     <!--
     <p style="margin-top:10px; font-size:0.8rem; color:#64748b;">
       위 정보는 예시입니다. 실제 회사 정보에 맞게 이메일, 회사명, 주소를 수정하세요.
