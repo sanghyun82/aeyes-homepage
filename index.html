@@ -307,6 +307,46 @@
   display: flex;
   align-items: center;
 }
+/* 수행 프로젝트 상단 고객 로고 스트립 */
+.client-strip {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 8px 0 12px;
+  flex-wrap: wrap;
+}
+
+.client-label {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.client-logos {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.client-logos img {
+  height: 28px;           /* 모두 동일 높이 */
+  opacity: 0.9;
+  filter: grayscale(25%); /* 살짝 desat 해서 사이트 톤 맞추기 */
+}
+
+/* 모바일에서 살짝 줄이기 */
+@media (max-width: 640px) {
+  .client-strip {
+    gap: 8px;
+  }
+  .client-logos {
+    gap: 16px;
+  }
+  .client-logos img {
+    height: 22px;
+  }
+}
 
 /* 반응형: 모바일에서는 위아래로 쌓이게 */
 @media (max-width: 840px) {
@@ -505,29 +545,21 @@
 
 <!-- PROJECTS -->
 <section class="section" id="projects">
-  <h2>수행 프로젝트</h2>
+ <h2>수행 프로젝트</h2>
 
-  <p class="lead">
-    상세 과제명과 사양은 보안 이슈로 공개하지 않지만,<br>
-    아래와 같은 연구기관과 함께 로봇·비전·제어 시스템을 개발해 왔습니다.
-  </p>
-
-  <!-- 고객 / 협력 기관 로고 -->
+<div class="client-strip">
+  <span class="client-label">함께한 기관</span>
   <div class="client-logos">
-    <div class="client-logo">
-      <img src="/assets/images/logo-kari.png" alt="한국항공우주연구원">
-    </div>
-    <div class="client-logo">
-      <img src="/assets/images/logo-kimm.png" alt="한국기계연구원">
-    </div>
-    <div class="client-logo">
-      <img src="/assets/images/logo-etri.png" alt="한국전자통신연구원">
-    </div>
+    <img src="/assets/images/logo-kari.jpg" alt="한국항공우주연구원">
+    <img src="/assets/images/logo-kimm.jpg" alt="한국기계연구원">
+    <img src="/assets/images/logo-etri.jpg" alt="한국전자통신연구원">
   </div>
+</div>
 
-  <p class="sub-lead">
-    아래 영상은 일부 프로젝트의 데모 화면이며, 실제 납품용 시스템은 별도 사양에 따라 커스터마이징됩니다.
-  </p>
+<p class="sub-lead">
+  상세 과제명과 사양은 보안 이슈로 공개하지 않지만,<br>
+  아래 영상은 일부 프로젝트의 데모 화면입니다.
+</p>
 
   <div class="project-list">
     <!-- 여기부터는 지금 쓰고 있는 가로형 카드 그대로 유지 -->
