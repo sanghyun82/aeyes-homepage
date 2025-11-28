@@ -218,6 +218,24 @@
       flex-wrap: wrap;
       gap: 6px;
     }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 비율 */
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 10px;
+      border: 1px solid rgba(148,163,184,0.35);
+      background: #020617;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
     @media (max-width: 840px) {
       .hero {
         grid-template-columns: 1fr;
@@ -370,34 +388,71 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
+    <!-- PROJECTS -->
   <section class="section" id="projects">
     <h2>프로젝트(예시)</h2>
     <p class="lead">
       실제 수행했던 프로젝트는 보안 이슈로 공개 범위를 조정해 정리할 예정입니다.
-      아래는 설명용 더미 텍스트이므로, 추후 실제 프로젝트로 교체하면 됩니다.
+      아래는 설명용 더미 텍스트와 예시 영상 영역이므로, 추후 실제 프로젝트와 영상으로 교체하면 됩니다.
     </p>
     <div class="grid">
+      <!-- 프로젝트 1 -->
       <div class="card">
         <h3>실외 자율주행 골프 카트</h3>
         <div class="meta">RTK-GNSS · LiDAR · ROS2</div>
-        <p>골프장 환경에서 자동 주행이 가능한 카트 플랫폼을 설계하고,
-        RTK-GNSS와 LiDAR를 이용한 위치 추정 및 경로 추종 알고리즘을 구현.</p>
+        <p>
+          골프장 환경에서 자동 주행이 가능한 카트 플랫폼을 설계하고,
+          RTK-GNSS와 LiDAR를 이용한 위치 추정 및 경로 추종 알고리즘을 구현.
+        </p>
+        <!-- 유튜브 영상 위치 (VIDEO_ID만 교체) -->
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/live/hBf0N5JqP2E?si=-rsezkhIQSiK7Qxr"
+            title="실외 자율주행 골프 카트 데모"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
+
+      <!-- 프로젝트 2 -->
       <div class="card">
         <h3>비전 기반 외관 검사 장비</h3>
         <div class="meta">산업용 카메라 · 조명 설계</div>
-        <p>금속 부품의 스크래치/이물 검사를 위한 비전 검사 시스템.
-        최적 조명 조건 설계 및 불량 분류 알고리즘 구현.</p>
+        <p>
+          금속 부품의 스크래치/이물 검사를 위한 비전 검사 시스템.
+          최적 조명 조건 설계 및 불량 분류 알고리즘 구현.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/live/hBf0N5JqP2E?si=-rsezkhIQSiK7Qxr"
+            title="비전 기반 외관 검사 장비 데모"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
+
+      <!-- 프로젝트 3 -->
       <div class="card">
         <h3>수조 환경 제어 시스템</h3>
         <div class="meta">임베디드 · IoT</div>
-        <p>다수의 센서와 액추에이터를 통합한 수조 자동 관리 시스템.
-        원격 모니터링 및 알림 기능 포함.</p>
+        <p>
+          다수의 센서와 액추에이터를 통합한 수조 자동 관리 시스템.
+          원격 모니터링 및 알림 기능 포함.
+        </p>
+        <div class="video-wrapper">
+          <iframe
+            src="https://www.youtube.com/live/hBf0N5JqP2E?si=-rsezkhIQSiK7Qxr"
+            title="수조 환경 제어 시스템 데모"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
+
 
   <!-- CONTACT -->
   <section class="section" id="contact">
