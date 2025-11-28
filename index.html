@@ -276,7 +276,48 @@
       object-fit: cover;
       opacity: 0.9; /* 너무 튀면 0.7 정도로 줄여도 됨 */
     }
-    
+    /* 프로젝트 섹션 가로 카드 레이아웃 */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* 카드 하나가 텍스트 + 영상 2열 */
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* 텍스트 쪽 정리 */
+.project-text h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.project-text .meta {
+  margin-bottom: 8px;
+}
+
+/* 영상 쪽 정렬 */
+.project-video {
+  display: flex;
+  align-items: center;
+}
+
+/* 반응형: 모바일에서는 위아래로 쌓이게 */
+@media (max-width: 840px) {
+  .project-card {
+    grid-template-columns: 1fr;
+  }
+  .project-video {
+    order: -1; /* 모바일에서 영상을 위로 올리고 싶으면 유지, 아래로 두고 싶으면 이 줄 삭제 */
+  }
+}
+
     /* 모바일에서는 위아래로 쌓이게 */
     @media (max-width: 840px) {
       .about-layout {
@@ -462,27 +503,28 @@
     </div>
   </section>
 
-    <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <h2>프로젝트</h2>
-    <p class="lead">
-      <br>
-      실제 수행했던 프로젝트는 보안 이슈로 공개가능한 범위 내에서만 소개합니다.<br><br>
-      21년 ~ 현재 한국기계연구원 UAV 이착륙 패드 <br><br>
-      21년 ~ 23년 한국기계연구원 초정밀 3차원 자세측정 시스템 <br><br>
-      22년 ~ 현재 한국기계연구원 / 한국전자통신 연구원 전방향 트레드밀<br><br>
-      
-    </p>
-    <div class="grid">
-      <!-- 프로젝트 1 -->
-      <div class="card">
+  <!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2>수행 프로젝트</h2>
+  <p class="lead">
+    실제 수행했던 프로젝트는 보안 이슈로 공개가능한 범위 내에서만 소개합니다.<br><br>
+    21년 ~ 현재 한국기계연구원 UAV 이착륙 패드<br>
+    21년 ~ 23년 한국기계연구원 초정밀 3차원 자세측정 시스템<br>
+    22년 ~ 현재 한국기계연구원 / 한국전자통신연구원 전방향 트레드밀
+  </p>
+
+  <div class="project-list">
+    <!-- 프로젝트 1 -->
+    <div class="card project-card">
+      <div class="project-text">
         <h3>실외 자율주행 골프 카트</h3>
         <div class="meta">RTK-GNSS · LiDAR · ROS2</div>
         <p>
           골프장 환경에서 자동 주행이 가능한 카트 플랫폼을 설계하고,
           RTK-GNSS와 LiDAR를 이용한 위치 추정 및 경로 추종 알고리즘을 구현.
         </p>
-        <!-- 유튜브 영상 위치 (VIDEO_ID만 교체) -->
+      </div>
+      <div class="project-video">
         <div class="video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/hBf0N5JqP2E"
@@ -492,15 +534,19 @@
           ></iframe>
         </div>
       </div>
+    </div>
 
-      <!-- 프로젝트 2 -->
-      <div class="card">
+    <!-- 프로젝트 2 -->
+    <div class="card project-card">
+      <div class="project-text">
         <h3>비전 기반 외관 검사 장비</h3>
         <div class="meta">산업용 카메라 · 조명 설계</div>
         <p>
           금속 부품의 스크래치/이물 검사를 위한 비전 검사 시스템.
-          최적 조명 조건 설계 및 불량 분류 알고리즘 구현.
+          최적 조명 조건 설계 및 불량 분류 알고리즘을 구현.
         </p>
+      </div>
+      <div class="project-video">
         <div class="video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/hBf0N5JqP2E"
@@ -510,15 +556,19 @@
           ></iframe>
         </div>
       </div>
+    </div>
 
-      <!-- 프로젝트 3 -->
-      <div class="card">
+    <!-- 프로젝트 3 -->
+    <div class="card project-card">
+      <div class="project-text">
         <h3>수조 환경 제어 시스템</h3>
         <div class="meta">임베디드 · IoT</div>
         <p>
           다수의 센서와 액추에이터를 통합한 수조 자동 관리 시스템.
-          원격 모니터링 및 알림 기능 포함.
+          원격 모니터링 및 알림 기능을 포함합니다.
         </p>
+      </div>
+      <div class="project-video">
         <div class="video-wrapper">
           <iframe
             src="https://www.youtube.com/embed/hBf0N5JqP2E"
@@ -529,7 +579,9 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 
   <!-- CONTACT -->
