@@ -330,9 +330,13 @@
 }
 
 .client-logos img {
-  height: 28px;           /* 모두 동일 높이 */
-  opacity: 0.9;
-  filter: grayscale(25%); /* 살짝 desat 해서 사이트 톤 맞추기 */
+  height: 28px;           
+  opacity: 0.85;
+  filter: 
+    grayscale(100%)      /* 완전 흑백화 */
+    brightness(230%)     /* 흰색으로 끌어올리기 */
+    contrast(120%)       /* 로고 테두리 더 또렷하게 */
+    invert(1);           /* 배경이 어두운 사이트일 때 로고를 하얗게 */
 }
 
 /* 모바일에서 살짝 줄이기 */
