@@ -6,6 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Aeyes Robotics - 스마트 로보틱스, 자율주행 카트, 컴퓨터 비전 기반 검사/인식 솔루션 전문 기업" />
   <style>
+    .about-section {
+      position: relative;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+  
+    .about-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url('/assets/images/company-bg.jpg') center/cover no-repeat;
+      opacity: 0.15;               /* 배경 투명도 */
+      filter: blur(5px);           /* 부드럽게 보이게 */
+      transform: scale(1.2);       /* 블러 대비 크게 확대 */
+      z-index: 1;
+    }
+  
+    .about-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35); /* 텍스트 가독성 위한 dark overlay */
+      z-index: 2;
+    }
+  
+    .about-section .container {
+      position: relative;
+      z-index: 3;
+    }
+  </style>
+  <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -335,33 +366,34 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="section" id="about">
-    <h2>회사 소개</h2>
-    <p class="lead">
+<section class="section about-section" id="about">
+  <h2>회사 소개</h2>
+  <p class="lead">
     Aeyes Robotics는 메카트로닉스, 임베디드 소프트웨어, 컴퓨터 비전 경험을 바탕으로<br>
     “현장에서 바로 쓸 수 있는” 솔루션을 지향합니다.<br>
     완성된 제품만 공급하는 것이 아니라,<br>
     요구사항 정의 → 컨셉 설계 → 시뮬레이션/프로토타입 → 현장 테스트까지<br>
     전 과정을 함께 고민합니다.
-    </p>
-    <div class="grid">
-      <div class="card">
-        <h3>엔지니어 중심</h3>
-        <p>영업 조직이 아니라 개발자가 바로 소통합니다. 기술적인 난이도와 리스크를
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>엔지니어 중심</h3>
+      <p>영업 조직이 아니라 개발자가 바로 소통합니다. 기술적인 난이도와 리스크를
         솔직하게 이야기하고, 가능한 방법과 어려운 부분을 있는 그대로 공유합니다.</p>
-      </div>
-      <div class="card">
-        <h3>종단 간 통합</h3>
-        <p>메커니즘 설계, 회로/제어, 소프트웨어, 센서 융합까지 하나의 팀에서
-        통합 설계가 가능해 인터페이스 문제와 책임소재를 최소화합니다.</p>
-      </div>
-      <div class="card">
-        <h3>실전 기준 설계</h3>
-        <p>책상 위의 이론이 아닌, 실제 운용 환경(온도, 진동, 유지보수)을 고려한 설계를 지향합니다.
-        장기간 운용과 안전성을 중요하게 생각합니다.</p>
-      </div>
     </div>
-  </section>
+    <div class="card">
+      <h3>종단 간 통합</h3>
+      <p>메커니즘 설계, 회로/제어, 소프트웨어, 센서 융합까지 하나의 팀에서
+        통합 설계가 가능해 인터페이스 문제와 책임소재를 최소화합니다.</p>
+    </div>
+    <div class="card">
+      <h3>실전 기준 설계</h3>
+      <p>책상 위의 이론이 아닌, 실제 운용 환경(온도, 진동, 유지보수)을 고려한 설계를 지향합니다.
+        장기간 운용과 안전성을 중요하게 생각합니다.</p>
+    </div>
+  </div>
+</section>
 
   <!-- SERVICES -->
   <section class="section" id="services">
