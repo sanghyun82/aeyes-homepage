@@ -312,7 +312,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin: 8px 0 12px;
+  margin: 8px 0 16px;   /* 살짝만 아래 여백 추가 */
   flex-wrap: wrap;
 }
 
@@ -325,28 +325,33 @@
 .client-logos {
   display: flex;
   align-items: center;
-  gap: 48px;                    /* 간격 넓혀 균형감 ↑ */
+  gap: 48px;            /* 로고 사이 간격 */
 }
 
+/* 로고가 들어가는 공통 박스 */
 .logo-box {
-  width: 220px;                 /* ★ 세 로고 박스를 동일한 너비로 강제 통일 */
-  height: 90px;                 /* ★ 일정한 높이 확보 */
+  width: 220px;                 /* 세 로고 박스 동일 너비 */
+  height: 90px;                 /* 동일 높이 */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 10px 12px;           /* 기본 패딩 */
+  padding: 10px 12px;           /* 로고 주변 여백 */
   box-sizing: border-box;
+
+  background: #ffffff;          /* ★ 흰색 배경으로 채우기 */
+  border-radius: 6px;           /* 모서리 살짝 둥글게 */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);  /* 은은한 그림자 (선택) */
 }
 
+/* 실제 로고 이미지 */
 .logo-box img {
-  max-height: 56px;             /* 로고 자체 크기는 동일 */
-  max-width: 100%;              /* 박스보다 커지지 않게 */
+  max-height: 56px;             /* 로고 높이 제한 */
+  max-width: 100%;              /* 박스 넘지 않도록 */
   object-fit: contain;
   display: block;
   opacity: 0.95;
 }
-
 
 /* 모바일에서 사이즈 조정 */
 @media (max-width: 640px) {
@@ -356,13 +361,18 @@
   .client-logos {
     gap: 16px;
   }
-  .logo-box img {
-    height: 44px;              /* 모바일도 2배 기준 */
-  }
+
   .logo-box {
+    width: 180px;
+    height: 72px;
     padding: 6px 10px;
   }
+
+  .logo-box img {
+    max-height: 44px;          /* 모바일에서도 비율 유지 */
+  }
 }
+
 
 
 
@@ -526,9 +536,9 @@
     </p>
     <div class="grid">
       <div class="card">
-        <h3>맞춤형 로봇 · 카트 설계</h3>
+        <h3>맞춤형 로봇 · 주행체 설계</h3>
         <div class="meta">Mechanical / Drive / Control</div>
-        <p>AGV, 자율주행 카트, 특수 목적 로봇 등 현장 요구에 맞는 플랫폼을 설계하고,
+        <p>AGV, 자율주행 vehicle, 특수 목적 로봇 등 현장 요구에 맞는 플랫폼을 설계하고,
         필요한 경우 시제품 제작까지 지원합니다.</p>
         <div class="pill-row">
           <span class="pill">Mecanum / Ackermann</span>
