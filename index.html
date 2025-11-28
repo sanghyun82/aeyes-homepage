@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aeyes Robotics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0b1020;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    header {
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(11,16,32,0.9);
+      z-index: 10;
+    }
+    .nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      color: #d0d0d0;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 60px 20px 40px;
+      display: grid;
+      grid-template-columns: minmax(0,2fr) minmax(0,1.4fr);
+      gap: 40px;
+      align-items: center;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      color: #c0c0c0;
+      margin-bottom: 24px;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .badge {
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      color: #ccc;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary {
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #3b82f6, #22c55e);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #e5e5e5;
+    }
+    .hero-card {
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 20px;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.12), transparent 60%),
+                  linear-gradient(145deg, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+      box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+      font-size: 0.9rem;
+    }
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px;
+    }
+    .section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 16px;
+    }
+    .section p {
+      color: #c0c0c0;
+      margin-bottom: 16px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 16px;
+      background: rgba(15,23,42,0.9);
+      font-size: 0.9rem;
+    }
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin-top: 32px;
+    }
+    .foot-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 16px 20px 32px;
+      font-size: 0.8rem;
+      color: #9ca3af;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    a {
+      color: #60a5fa;
+    }
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 36px;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">AEYES</div>
+    <nav class="nav-links">
+      <a href="#about">회사소개</a>
+      <a href="#services">서비스</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#contact">문의</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div>
+      <h1 class="hero-title">
+        스마트 로보틱스 ·<br />비전 시스템 전문 기업
+      </h1>
+      <p class="hero-sub">
+        Aeyes는 산업 현장을 위한 맞춤형 로봇 및 컴퓨터 비전 솔루션을 설계·개발합니다.
+        컨셉 설계부터 프로토타입, 양산까지 엔지니어가 직접 함께합니다.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Custom Robotics</span>
+        <span class="badge">Computer Vision</span>
+        <span class="badge">Automation</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact"><button class="btn-primary">프로젝트 상담하기</button></a>
+        <a href="#projects"><button class="btn-secondary">프로젝트 사례 보기</button></a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3 style="margin-bottom:8px;">우리가 하는 일</h3>
+      <p style="color:#d4d4d8; margin-bottom:12px;">
+        · 고객 요구사항 분석 및 컨설팅<br/>
+        · 로봇/메카트로닉스 시스템 설계<br/>
+        · 컴퓨터 비전·센서 융합 알고리즘 개발<br/>
+        · 프로토타입 제작 및 현장 피드백 반영
+      </p>
+      <p style="color:#9ca3af;">
+        현재는 간단한 소개 페이지입니다. 추후 포트폴리오, 기술 블로그, 데모 영상 등을
+        단계적으로 확장할 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <h2>회사 소개</h2>
+    <p>
+      Aeyes는 로봇 및 자동화 시스템을 설계·제작해온 엔지니어가 설립한 기술 기반 회사입니다.
+      하드웨어 메커니즘, 임베디드 소프트웨어, 제어 알고리즘, 컴퓨터 비전을 통합한
+      ‘엔드투엔드 솔루션’을 제공합니다.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <h2>주요 서비스</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>맞춤형 로봇 설계</h3>
+        <p>AGV, 특수 목적 로봇, 테스트 장비 등 현장 요구사항에 맞는 구조 및 구동계를 설계합니다.</p>
+      </div>
+      <div class="card">
+        <h3>컴퓨터 비전·인식 시스템</h3>
+        <p>카메라 기반 검사, 위치 인식, 추적 등 Vision 알고리즘 및 시스템 통합을 제공합니다.</p>
+      </div>
+      <div class="card">
+        <h3>제어 소프트웨어 개발</h3>
+        <p>C/C++, C#, ROS2 기반 제어·모니터링 소프트웨어를 설계부터 GUI까지 개발합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <h2>프로젝트 사례(예시)</h2>
+    <p>실제 수행한 프로젝트를 나중에 여기에 정리해 넣으면 됩니다.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>자율 주행 카트</h3>
+        <p>LiDAR, RTK-GNSS를 활용한 실외 자율주행 카트 개발 (경로 추종, 장애물 회피 등).</p>
+      </div>
+      <div class="card">
+        <h3>비전 검사 시스템</h3>
+        <p>산업용 카메라 및 조명 설계를 포함한 불량 검출 비전 시스템.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <h2>문의</h2>
+    <p style="margin-bottom:8px;">
+      프로젝트 상담, 기술 협업, 견적 문의는 이메일로 연락 주시면 빠르게 답변드리겠습니다.
+    </p>
+    <p style="margin-bottom:4px;">
+      이메일: <a href="mailto:info@aeyes.co.kr">info@aeyes.co.kr</a>
+    </p>
+    <p style="font-size:0.9rem; color:#9ca3af;">
+      ※ 위 연락처/내용은 나중에 실제 회사 정보에 맞게 수정하면 됩니다.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <div class="foot-inner">
+    <span>© <span id="year"></span> Aeyes. All rights reserved.</span>
+    <span>aeyes.co.kr</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
