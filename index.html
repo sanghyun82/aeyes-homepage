@@ -325,27 +325,28 @@
 .client-logos {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 48px;                    /* 간격 넓혀 균형감 ↑ */
 }
 
-/* ★ 이미지 감싼 박스 — 여백을 이 박스에서 처리 */
 .logo-box {
-  padding: 8px 14px;          /* 로고 주변 균일 여백 */
+  width: 220px;                 /* ★ 세 로고 박스를 동일한 너비로 강제 통일 */
+  height: 90px;                 /* ★ 일정한 높이 확보 */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 4px;         /* 선택: 모서리 부드럽게 */
+
+  padding: 10px 12px;           /* 기본 패딩 */
   box-sizing: border-box;
 }
 
-/* 실제 로고 이미지 */
 .logo-box img {
-  height: 56px;                /* 2배 확대 유지 */
+  max-height: 56px;             /* 로고 자체 크기는 동일 */
+  max-width: 100%;              /* 박스보다 커지지 않게 */
   object-fit: contain;
   display: block;
   opacity: 0.95;
-  /* 필터는 사용하지 않음(브랜드 가이드 준수) */
 }
+
 
 /* 모바일에서 사이즈 조정 */
 @media (max-width: 640px) {
