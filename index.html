@@ -400,34 +400,49 @@
       .hero-content h1 { font-size: 2.2rem; }
       .section-title { font-size: 1.8rem; }
     }
-    /* --- Footer 블로그 버튼 스타일 --- */
+    /* --- Footer 버튼 스타일 (블로그 & 유튜브) --- */
     .footer-links {
       display: flex;
       justify-content: center;
-      gap: 16px;
+      gap: 12px; /* 버튼 사이 간격 */
       margin-bottom: 30px;
+      flex-wrap: wrap; /* 모바일에서 줄바꿈 허용 */
     }
-    .blog-btn {
+    
+    /* 공통 버튼 디자인 */
+    .link-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
+      padding: 10px 20px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(148, 163, 184, 0.2);
       border-radius: 100px;
       color: #cbd5e1;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 500;
       transition: all 0.3s ease;
     }
-    .blog-btn:hover {
-      background: rgba(3, 199, 90, 0.1); /* 네이버 그린 */
+    
+    /* 네이버 블로그 전용 호버 효과 (초록색) */
+    .btn-naver:hover {
+      background: rgba(3, 199, 90, 0.1);
       border-color: #03C75A;
       color: #03C75A;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(3, 199, 90, 0.2);
     }
-    .blog-btn i { font-size: 1.1rem; }
+    
+    /* 유튜브 전용 호버 효과 (빨간색) */
+    .btn-youtube:hover {
+      background: rgba(255, 0, 0, 0.1);
+      border-color: #ff0000;
+      color: #ff0000;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+    }
+    
+    .link-btn i { font-size: 1.1rem; }
 
 
     
@@ -713,9 +728,15 @@
   <div class="container">
     
     <div class="footer-links" data-aos="fade-up" data-aos-offset="0">
-      <a href="https://blog.naver.com/aeyes_dev" target="_blank" class="blog-btn">
-        <i class="ri-book-read-line"></i> AEYES 기술 블로그
+      
+      <a href="https://blog.naver.com/aeyes_dev" target="_blank" class="link-btn btn-naver">
+        <i class="ri-book-read-line"></i> 기술 블로그
       </a>
+
+      <a href="https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88" target="_blank" class="link-btn btn-youtube">
+        <i class="ri-youtube-fill"></i> Youtube 채널
+      </a>
+
     </div>
 
     <p>© <span id="year"></span> AEYES Robotics. All rights reserved.</p>
