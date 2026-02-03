@@ -400,6 +400,37 @@
       .hero-content h1 { font-size: 2.2rem; }
       .section-title { font-size: 1.8rem; }
     }
+    /* --- Footer 블로그 버튼 스타일 --- */
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+    .blog-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      border-radius: 100px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    .blog-btn:hover {
+      background: rgba(3, 199, 90, 0.1); /* 네이버 그린 */
+      border-color: #03C75A;
+      color: #03C75A;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(3, 199, 90, 0.2);
+    }
+    .blog-btn i { font-size: 1.1rem; }
+
+
+    
   </style>
 </head>
 <body>
@@ -680,8 +711,17 @@
 
 <footer>
   <div class="container">
-    <p>&copy; <span id="year"></span> AEYES Robotics. All rights reserved.</p>
-    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.6;">Designed by AEYES Engineering Team</p>
+    
+    <div class="footer-links" data-aos="fade-up" data-aos-offset="0">
+      <a href="https://blog.naver.com/aeyes_dev" target="_blank" class="blog-btn">
+        <i class="ri-book-read-line"></i> AEYES 기술 블로그
+      </a>
+    </div>
+
+    <p>© <span id="year"></span> AEYES Robotics. All rights reserved.</p>
+    <p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.5;">
+      Designed by AEYES Engineering Team
+    </p>
   </div>
 </footer>
 
