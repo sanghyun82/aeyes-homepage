@@ -1,32 +1,37 @@
 const projects = {
   odt: {
     title: "전방향 러닝 플랫폼",
-    description: "사용자의 보행 방향을 예측해 360도 움직임을 지원합니다.",
+    description:
+      "보행 의도를 예측해 360도 움직임을 지원하는 트레드밀입니다. 고속 모션 캡처와 다축 서보 제어를 통합했습니다.",
     spec: "360° 보행 대응 · 모션 예측 · 다축 서보 제어",
     video: "dt_D1lG4O5k",
   },
   landing: {
     title: "드론 랜딩 패드",
-    description: "차량·선박의 움직임에 맞춰 착륙면의 수평을 보정합니다.",
+    description:
+      "IMU 센싱과 모션 예측으로 차량·선박의 움직임에 맞춰 착륙면의 수평을 보정합니다. 기구와 서보 제어를 함께 개발했습니다.",
     spec: "50kg급 하중 대응 · IMU 센싱 · 수평 보정",
     video: "owjjG-0rWYw",
   },
   motion: {
     title: "2축 로보틱헤드",
-    description: "CAN 통신으로 두 모터의 위치와 속도를 동기 제어합니다.",
+    description:
+      "CAN 통신으로 두 구동축의 위치와 속도를 동기 제어합니다. CSP·CSV 프로파일을 구현하고 팬·틸트 기구에 적용했습니다.",
     spec: "4kHz 동기 제어 · 0.001° 반복정밀도 · 페이로드 15kg",
     video: "HeD9CaVdBus",
     blog: "https://blog.naver.com/aeyes_dev/224412347992",
   },
   follow: {
     title: "사용자 추종 이동체",
-    description: "초음파와 LiDAR 센서로 사용자를 따라가고 장애물을 피합니다.",
+    description:
+      "초음파와 LiDAR 센서 정보를 융합해 사용자를 추종합니다. 추종 제어와 장애물 회피 기능을 하나의 이동체에 통합했습니다.",
     spec: "센서 융합 · 사용자 추종 · 장애물 회피",
     video: "qU1RXsmZKLo",
   },
   measurement: {
     title: "광학 자세 측정 시스템",
-    description: "카메라와 마커를 이용해 대상의 자세를 측정합니다.",
+    description:
+      "마커 설계와 PnP 알고리즘, EKF 추정을 이용해 대상의 3자유도 자세를 측정합니다. 10m 거리에서 0.05도 정밀도로 측정하는 광학 시스템입니다.",
     spec: "10m 측정 거리 · 0.05° 정밀도 · 3자유도 자세 측정",
     video: "__xpV4BS0xM",
   },

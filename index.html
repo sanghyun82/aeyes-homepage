@@ -190,6 +190,11 @@
               영상 보기 <span aria-hidden="true">↗</span>
             </button>
           </div>
+          <ul class="hero-facts" aria-label="대표 프로젝트 주요 사양">
+            <li>4 kHz 동기 제어</li>
+            <li>CAN 통신</li>
+            <li>CSP·CSV 프로파일</li>
+          </ul>
         </div>
       </section>
 
@@ -227,6 +232,11 @@
                   <button data-project="motion">2축 로보틱헤드</button>
                 </h3>
                 <p>CAN 통신으로 두 모터의 위치와 속도를 동기 제어합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>4 kHz 동기 제어</li>
+                  <li>반복정밀도 0.001°</li>
+                  <li>페이로드 15 kg</li>
+                </ul>
               </div>
             </article>
             <article class="project-card">
@@ -247,6 +257,11 @@
               <div class="project-text">
                 <h3><button data-project="landing">드론 랜딩 패드</button></h3>
                 <p>차량·선박의 움직임에 맞춰 착륙면의 수평을 보정합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>50 kg급 하중</li>
+                  <li>IMU 센싱</li>
+                  <li>실시간 수평 보정</li>
+                </ul>
               </div>
             </article>
             <article class="project-card">
@@ -269,6 +284,11 @@
                   <button data-project="follow">사용자 추종 이동체</button>
                 </h3>
                 <p>초음파와 LiDAR로 사용자를 따라가고 장애물을 피합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>초음파·LiDAR</li>
+                  <li>사용자 추종</li>
+                  <li>장애물 회피</li>
+                </ul>
               </div>
             </article>
             <article class="project-card">
@@ -293,6 +313,11 @@
                   </button>
                 </h3>
                 <p>카메라와 마커를 이용해 대상의 자세를 측정합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>측정 거리 10 m</li>
+                  <li>정밀도 0.05°</li>
+                  <li>3자유도 자세 측정</li>
+                </ul>
               </div>
             </article>
             <article class="project-card extra-project" hidden>
@@ -317,6 +342,11 @@
                   </button>
                 </h3>
                 <p>같은 환경에서 다섯 가지 주행 알고리즘을 비교합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>알고리즘 5종 비교</li>
+                  <li>ROS2·Nav2</li>
+                  <li>동적 장애물</li>
+                </ul>
               </div>
             </article>
             <article class="project-card extra-project" hidden>
@@ -341,6 +371,11 @@
                 <p>
                   매카넘 휠 플랫폼에 실내 측위와 자율주행 기능을 통합합니다.
                 </p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>매카넘 휠</li>
+                  <li>실내 SLAM</li>
+                  <li>장애물 회피</li>
+                </ul>
               </div>
             </article>
             <article class="project-card extra-project" hidden>
@@ -363,6 +398,11 @@
                   <button data-project="manipulator">4축 매니퓰레이터</button>
                 </h3>
                 <p>반복 하중을 고려한 구조와 정밀 위치 제어를 개발합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>4축 제어</li>
+                  <li>반복 하중 고려</li>
+                  <li>정밀 위치 제어</li>
+                </ul>
               </div>
             </article>
             <article class="project-card extra-project" hidden>
@@ -383,6 +423,11 @@
               <div class="project-text">
                 <h3><button data-project="odt">전방향 러닝 플랫폼</button></h3>
                 <p>보행 방향을 예측해 360도 움직임을 지원합니다.</p>
+                <ul class="project-facts" aria-label="사례 주요 사양">
+                  <li>360° 보행</li>
+                  <li>모션 예측</li>
+                  <li>다축 서보 제어</li>
+                </ul>
               </div>
             </article>
           </div>
@@ -416,23 +461,25 @@
             <p class="eyebrow">02 / EXPERTISE</p>
             <h2 id="expertise-title">개발 분야</h2>
           </div>
+          <p class="section-note">
+            신규 장비 개발 · 기존 장비 개조 · 알고리즘 고도화
+          </p>
         </div>
         <div class="expertise-list">
           <article class="expertise-item">
             <span class="item-number">01</span>
-            <div>
-              <h3>로봇·주행체</h3>
-              <p>
-                이동체와 실험 장비의 기구·전장을 설계하고,<br
-                  class="desktop-break"
-                />
-                센서와 자율주행 기능을 통합합니다.
-              </p>
+            <div class="expertise-copy">
+              <h3>기구·로봇 플랫폼</h3>
+              <p>이동체와 실험 장비의 구조를 설계하고 제작합니다.</p>
+              <ul class="scope-list" aria-label="개발 범위">
+                <li>매카넘·애커먼 주행 구조, AGV·AMR 연구용 시제</li>
+                <li>배터리·드라이버·전원 분배·센서 통합</li>
+              </ul>
             </div>
             <ul class="skill-tags" aria-label="관련 기술">
-              <li>기구 설계</li>
-              <li>전장</li>
-              <li>ROS2</li>
+              <li>SolidWorks</li>
+              <li>구조 해석</li>
+              <li>AGV·AMR</li>
             </ul>
             <svg
               class="expertise-icon"
@@ -450,17 +497,18 @@
           </article>
           <article class="expertise-item">
             <span class="item-number">02</span>
-            <div>
+            <div class="expertise-copy">
               <h3>PCB·임베디드</h3>
-              <p>
-                제어 보드의 회로와 PCB를 설계하고,<br class="desktop-break" />
-                펌웨어를 개발합니다.
-              </p>
+              <p>장비용 PCB와 임베디드 제어기를 개발합니다.</p>
+              <ul class="scope-list" aria-label="개발 범위">
+                <li>제어 보드의 회로·PCB 설계와 전원·센서 인터페이스</li>
+                <li>STM32·ESP32 펌웨어와 센서·구동기 연동</li>
+              </ul>
             </div>
             <ul class="skill-tags" aria-label="관련 기술">
               <li>회로·PCB 설계</li>
               <li>STM32·ESP32</li>
-              <li>펌웨어</li>
+              <li>C/C++</li>
             </ul>
             <svg
               class="expertise-icon"
@@ -483,19 +531,52 @@
           </article>
           <article class="expertise-item">
             <span class="item-number">03</span>
-            <div>
-              <h3>비전 검사·측정</h3>
+            <div class="expertise-copy">
+              <h3>자율주행·ROS2 통합</h3>
+              <p>실내 측위, 경로 추종, 장애물 회피 기능을 로봇에 적용합니다.</p>
+              <ul class="scope-list" aria-label="개발 범위">
+                <li>ROS2·Nav2 기반 주행 기능과 SLAM 통합</li>
+                <li>LiDAR·초음파를 이용한 사용자 추종과 장애물 회피</li>
+              </ul>
+            </div>
+            <ul class="skill-tags" aria-label="관련 기술">
+              <li>ROS2·Nav2</li>
+              <li>SLAM</li>
+              <li>센서 융합</li>
+            </ul>
+            <svg
+              class="expertise-icon"
+              viewBox="0 0 90 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M16 70V22h24v27h31V16M16 70h55V49"
+                stroke-dasharray="4 4"
+              />
+              <circle cx="16" cy="70" r="6" />
+              <circle cx="71" cy="16" r="6" />
+              <path d="m32 63 13-26 13 26-13-6-13 6Z" />
+            </svg>
+          </article>
+          <article class="expertise-item">
+            <span class="item-number">04</span>
+            <div class="expertise-copy">
+              <h3>비전 검사·정밀 측정</h3>
               <p>
-                카메라와 영상 알고리즘으로 제품을 검사하고,<br
-                  class="desktop-break"
-                />
-                위치와 자세를 측정합니다.
+                카메라 영상으로 제품을 검사하고 대상의 위치와 자세를 측정합니다.
               </p>
+              <ul class="scope-list" aria-label="개발 범위">
+                <li>카메라·조명 조건에 맞춘 검사·인식·추적 알고리즘</li>
+                <li>마커 설계와 PnP·EKF 기반 3차원 자세 측정</li>
+              </ul>
             </div>
             <ul class="skill-tags" aria-label="관련 기술">
               <li>OpenCV</li>
-              <li>딥러닝</li>
-              <li>정밀 측정</li>
+              <li>PyTorch·YOLO</li>
+              <li>PnP·EKF</li>
             </ul>
             <svg
               class="expertise-icon"
@@ -513,18 +594,19 @@
             </svg>
           </article>
           <article class="expertise-item">
-            <span class="item-number">04</span>
-            <div>
-              <h3>장비 제어 소프트웨어</h3>
-              <p>
-                모터와 장비를 제어하고,<br class="desktop-break" />
-                운전 상태를 확인하는 소프트웨어를 개발합니다.
-              </p>
+            <span class="item-number">05</span>
+            <div class="expertise-copy">
+              <h3>모션·장비 제어</h3>
+              <p>모터 제어부터 장비 조작·모니터링 화면까지 개발합니다.</p>
+              <ul class="scope-list" aria-label="개발 범위">
+                <li>CAN 기반 다축 위치·속도 동기 제어, Modbus 장비 연동</li>
+                <li>WPF/C#·Android 기반 제어·모니터링 화면</li>
+              </ul>
             </div>
             <ul class="skill-tags" aria-label="관련 기술">
-              <li>WPF·C#</li>
+              <li>CSP·CSV</li>
               <li>CAN·Modbus</li>
-              <li>제어 UI</li>
+              <li>WPF·C#</li>
             </ul>
             <svg
               class="expertise-icon"
