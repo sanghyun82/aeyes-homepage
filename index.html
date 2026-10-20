@@ -1,368 +1,685 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MKTG3BWX');</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EREWEP1B84"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-EREWEP1B84");
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>주식회사 에이아이즈 | 로봇 시스템 설계, 자율주행, 비전·제어 통합 개발</title>
-  <meta name="description" content="주식회사 에이아이즈는 로봇 플랫폼 설계, 자율주행, 비전 검사, 제어 소프트웨어를 통합 개발하는 로봇 엔지니어링 기업입니다.">
-  <meta name="keywords" content="에이아이즈, AEYES, 로봇 시스템 설계, 자율주행, 비전 검사, 제어 소프트웨어, ROS2, AGV, AMR, 모션 제어, CAN 통신">
-  <meta name="theme-color" content="#000000">
-  <link rel="canonical" href="https://www.aeyes.co.kr/">
-  <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preconnect" href="https://img.youtube.com">
-  <meta property="og:title" content="주식회사 에이아이즈 | 로봇 엔지니어링 파트너">
-  <meta property="og:description" content="로봇 플랫폼 설계, 자율주행, 비전·제어 통합 개발을 수행하는 AEYES Robotics">
-  <meta property="og:image" content="https://www.aeyes.co.kr/assets/images/opengraph.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://www.aeyes.co.kr/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="ko_KR">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="주식회사 에이아이즈 | 로봇 엔지니어링 파트너">
-  <meta name="twitter:description" content="로봇 플랫폼 설계, 자율주행, 비전·제어 통합 개발을 수행하는 AEYES Robotics">
-  <meta name="twitter:image" content="https://www.aeyes.co.kr/assets/images/opengraph.jpg">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "주식회사 에이아이즈",
-    "alternateName": "AEYES Robotics",
-    "url": "https://www.aeyes.co.kr/",
-    "logo": "https://www.aeyes.co.kr/assets/images/logo.png",
-    "email": "shjoo@aeyes.co.kr",
-    "description": "로봇 플랫폼 설계, 자율주행, 비전 검사, 제어 소프트웨어를 통합 개발하는 로봇 엔지니어링 기업",
-    "address": [
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>주식회사 에이아이즈 | 로봇 시스템 설계·개발</title>
+    <meta
+      name="description"
+      content="에이아이즈는 로봇과 자동화 장비를 개발합니다. 기구·PCB 설계, 임베디드, 자율주행, 비전·제어 소프트웨어 개발."
+    />
+    <meta
+      name="keywords"
+      content="에이아이즈, AEYES, 로봇 시스템 설계, 자율주행, 비전 검사, 제어 소프트웨어, ROS2, AGV, AMR, 모션 제어, CAN 통신, PCB 설계, 임베디드, 펌웨어"
+    />
+    <meta name="theme-color" content="#184ee4" />
+    <link rel="canonical" href="https://www.aeyes.co.kr/" />
+    <link rel="icon" href="assets/images/logo.png" type="image/png" />
+    <meta
+      property="og:title"
+      content="주식회사 에이아이즈 | 로봇 시스템 설계·개발"
+    />
+    <meta
+      property="og:description"
+      content="기구·PCB 설계부터 임베디드, 자율주행, 비전·제어까지 개발합니다."
+    />
+    <meta
+      property="og:image"
+      content="https://www.aeyes.co.kr/assets/images/opengraph.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.aeyes.co.kr/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="주식회사 에이아이즈 | 로봇 시스템 설계·개발"
+    />
+    <meta
+      name="twitter:description"
+      content="기구·PCB 설계부터 임베디드, 자율주행, 비전·제어까지 개발합니다."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.aeyes.co.kr/assets/images/opengraph.jpg"
+    />
+    <script type="application/ld+json">
       {
-        "@type": "PostalAddress",
-        "addressLocality": "대전광역시 유성구",
-        "streetAddress": "테크노4로 17, 대덕비즈센터 A717",
-        "addressCountry": "KR"
-      },
-      {
-        "@type": "PostalAddress",
-        "addressLocality": "울산광역시 북구",
-        "streetAddress": "천마1로 35",
-        "addressCountry": "KR"
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "주식회사 에이아이즈",
+        "alternateName": "AEYES Robotics",
+        "url": "https://www.aeyes.co.kr/",
+        "logo": "https://www.aeyes.co.kr/assets/images/logo.png",
+        "email": "shjoo@aeyes.co.kr",
+        "description": "로봇과 자동화 장비를 개발합니다. 기구·PCB 설계부터 임베디드, 자율주행, 비전·제어까지 개발합니다.",
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "대전광역시 유성구",
+            "streetAddress": "테크노4로 17, 대덕비즈센터 A717",
+            "addressCountry": "KR"
+          },
+          {
+            "@type": "PostalAddress",
+            "addressLocality": "울산광역시 북구",
+            "streetAddress": "천마1로 35",
+            "addressCountry": "KR"
+          }
+        ],
+        "sameAs": [
+          "https://blog.naver.com/aeyes_dev",
+          "https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88"
+        ]
       }
-    ],
-    "sameAs": [
-      "https://blog.naver.com/aeyes_dev",
-      "https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88"
-    ]
-  }
-  </script>
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-  <style>
-    :root{--black:#000;--bg-1:#0e0e0e;--bg-2:#161616;--bg-3:#292929;--gray:#454545;--gray-2:#8a8a8a;--gray-3:#b5b5b6;--light:#ececf0;--light-2:#f7f7f9;--white:#fff;--radius:14px;--radius-sm:8px;--ink:#fff;--ink-2:#b5b5b6;--muted:#8a8a8a;--surface:#161616;--line:rgba(255,255,255,.1);--line-strong:rgba(255,255,255,.22);--btn-bg:#fff;--btn-ink:#000;--chip-bg:#1f1f1f;--chip-ink:#fff;--icon-bg:#292929;--icon-ink:#fff;--ghost:rgba(255,255,255,.035)}
-    .section-light,.card-white{--ink:#161616;--ink-2:#454545;--muted:#6f6f76;--surface:#fff;--line:#e3e3e4;--line-strong:#d4d4d9;--btn-bg:#161616;--btn-ink:#fff;--chip-bg:#161616;--chip-ink:#fff;--icon-bg:#161616;--icon-ink:#fff;--ghost:rgba(0,0,0,.045)}
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:"Pretendard",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:var(--ink);background:#000;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased} ::selection{background:#fff;color:#000} .section-light ::selection,.card-white ::selection{background:#161616;color:#fff} a{text-decoration:none;color:inherit;transition:.2s} a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid currentColor;outline-offset:3px} img{display:block;max-width:100%} .en,.chip,.brand strong,.kpi strong,.num,.ghost,.service small,.case-sub,.board-eyebrow{font-family:"Poppins","Pretendard",-apple-system,system-ui,sans-serif} .container{width:min(1200px,calc(100% - 40px));margin:0 auto} .section{position:relative;padding:112px 0;scroll-margin-top:72px;overflow:hidden;color:var(--ink)} .section-light{background:var(--light)} .band-dark{background:var(--bg-1)} .band-black{background:#000} .ghost{position:absolute;right:-.04em;top:32px;z-index:0;font-size:clamp(5rem,15vw,13rem);font-weight:700;line-height:1;letter-spacing:-.04em;color:var(--ghost);pointer-events:none;user-select:none;white-space:nowrap} .section>.container{position:relative;z-index:1}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:8px;background:var(--chip-bg);color:var(--chip-ink);font-size:.78rem;font-weight:500;letter-spacing:.01em;line-height:1.25;max-width:100%} .section-head{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:24px 56px;align-items:end;margin-bottom:48px} .section-head .chip{margin-bottom:22px} .title{font-size:clamp(1.9rem,3.2vw,2.75rem);line-height:1.18;letter-spacing:-.03em;font-weight:600;color:var(--ink);word-break:keep-all} .title-sm{font-size:1.45rem} .desc{color:var(--ink-2);font-size:.98rem;line-height:1.75;word-break:keep-all;max-width:520px} .section-head .desc{padding-bottom:6px} .card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);color:var(--ink)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:var(--radius-sm);font-weight:600;font-size:.92rem;line-height:1.2;border:1px solid transparent;white-space:nowrap;cursor:pointer} .btn i{font-size:1.05em} .btn-primary{background:var(--btn-bg);color:var(--btn-ink);border-color:var(--btn-bg)} .btn-primary:hover{opacity:.86} .btn-secondary{border-color:var(--line-strong);color:var(--ink);background:transparent} .btn-secondary:hover{border-color:var(--ink)} .btn-ghost{border-color:transparent;color:var(--ink-2);background:transparent;padding-left:8px;padding-right:8px} .btn-ghost:hover{color:var(--ink)}
-    .site-header{position:sticky;top:0;z-index:1000;background:rgba(0,0,0,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.08)} .nav{min-height:72px;display:flex;align-items:center;gap:24px} .brand{display:flex;align-items:center;gap:12px} .brand img{width:40px;height:40px;border-radius:10px;border:1px solid rgba(255,255,255,.1)} .brand>span{display:block} .brand strong{display:block;font-size:1rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;line-height:1.1;color:#fff} .brand span span{display:block;margin-top:3px;font-size:.7rem;color:var(--gray-2);letter-spacing:.04em} .nav-wrap{position:relative;margin-left:auto;display:flex;align-items:center;gap:18px} .nav-links{display:flex;align-items:center;gap:26px} .nav-links a{color:var(--gray-3);font-weight:500;font-size:.9rem} .nav-links a:hover{color:#fff} .nav-cta{padding:10px 16px;font-size:.85rem} .nav-toggle{display:none;align-items:center;justify-content:center;width:42px;height:42px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.14);background:#161616;color:#fff;cursor:pointer;font-size:1.2rem}
-    .hero{position:relative;padding:76px 0 100px;background:#000;overflow:hidden} .hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:56px;align-items:center} .hero-copy .chip{margin-bottom:28px} .hero h1{font-size:clamp(2.3rem,4.2vw,3.6rem);line-height:1.12;letter-spacing:-.035em;font-weight:700;color:#fff;word-break:keep-all} .hero h1 span{display:block;margin-bottom:.3em;font-size:.6em;font-weight:400;letter-spacing:-.02em;color:rgba(255,255,255,.72)} .hero h1 strong{display:block;font-weight:700} .hero p{margin-top:26px;max-width:560px;color:var(--gray-3);font-size:1rem;line-height:1.8;word-break:keep-all} .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
-    .hero-visual{position:relative} .hero-visual::before{content:"";position:absolute;inset:28px -28px -28px 28px;border:1px solid rgba(255,255,255,.09);border-radius:18px;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:14px 14px;pointer-events:none} .board{position:relative;padding:26px;border-radius:16px;background:#fff;color:#161616;box-shadow:0 30px 80px rgba(0,0,0,.6)} .board-eyebrow{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a} .board-eyebrow .chip{background:#161616;color:#fff;font-size:.68rem;padding:5px 9px;text-transform:none;letter-spacing:.01em} .board h2{margin-top:14px;font-size:1.22rem;line-height:1.35;letter-spacing:-.02em;font-weight:700;color:#161616;word-break:keep-all} .board>p{margin-top:8px;font-size:.86rem;line-height:1.65;color:#6f6f76;word-break:keep-all} .seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px} .seg span{padding:6px 10px;border-radius:6px;border:1px solid #e3e3e4;font-size:.76rem;font-weight:500;color:#454545;background:#fff;line-height:1.3} .seg span.on{background:#161616;border-color:#161616;color:#fff} .kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:20px} .kpi{padding:16px 16px 14px;border-radius:12px;background:#f7f7f9;border:1px solid #ececf0} .kpi span{display:block;font-size:.74rem;color:#6f6f76;line-height:1.4} .kpi strong{display:block;margin-top:10px;font-size:1.9rem;font-weight:600;line-height:1;letter-spacing:-.03em;color:#161616;font-variant-numeric:tabular-nums} .kpi strong small{font-size:.9rem;font-weight:500;margin-left:3px;color:#454545} .kpi em{display:inline-flex;align-items:center;gap:4px;margin-top:12px;padding:3px 8px;border-radius:999px;border:1px solid #d9d9de;font-size:.68rem;font-style:normal;font-weight:500;color:#161616;line-height:1.4} .kpi-dark{background:#161616;border-color:#161616;grid-row:span 2;display:flex;flex-direction:column} .kpi-dark span{color:#b5b5b6} .kpi-dark strong{color:#fff;font-size:2.3rem;margin-top:auto;padding-top:18px} .kpi-dark strong small{color:#b5b5b6} .kpi-dark em{border-color:rgba(255,255,255,.28);color:#fff;align-self:flex-start} .kpi-wide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px} .kpi-wide strong{margin-top:0;font-size:1.6rem} .board-list{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 14px;margin-top:20px;padding-top:18px;border-top:1px solid #ececf0} .board-list li{display:flex;gap:8px;align-items:flex-start;font-size:.8rem;color:#161616;line-height:1.45} .board-list i{color:#161616;margin-top:1px;font-size:.95rem} .kpi-note{display:block;margin-top:8px;font-size:.72rem;font-weight:500;color:#6f6f76;line-height:1.4} .stack{margin-top:20px;padding-top:18px;border-top:1px solid #ececf0} .stack-head{display:flex;justify-content:space-between;align-items:center;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#8a8a8a} .stack-head span+span{font-family:"Pretendard",sans-serif;letter-spacing:0;text-transform:none;color:#6f6f76} .stack-list{list-style:none;display:grid;grid-template-columns:max-content minmax(2.5rem,1fr) max-content;gap:9px 12px;align-items:center;margin-top:12px} .stack-list li{display:contents;font-size:.78rem;line-height:1.3} .stack-name{color:#161616;font-weight:600;white-space:nowrap} .stack-bar{display:block;height:6px;border-radius:3px;background:#161616;min-width:0} .stack-tools{color:#6f6f76;font-size:.7rem;white-space:nowrap;text-align:right;font-family:"Poppins","Pretendard",sans-serif}
-    .trust-grid,.about-grid,.contact-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:20px} .trust-grid>.card{display:flex;flex-direction:column;padding:32px} .trust-grid .chip{margin-bottom:18px;align-self:flex-start} .trust-points,.feature-grid,.service-grid,.process-grid,.compact-grid{display:grid;gap:16px} .trust-points{margin-top:24px;list-style:none} .trust-points li,.note-list li,.service-list li,.brief li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-2);font-size:.94rem;line-height:1.65} .trust-points i,.service-list i,.note-list i,.brief i{color:var(--ink);font-size:1.05rem;margin-top:2px;flex:none} .logo-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:28px} .logo-box{display:flex;flex:1 1 140px;align-items:center;justify-content:center;min-width:140px;height:84px;padding:12px 20px;border-radius:12px;background:var(--light-2);border:1px solid var(--line)} .logo-box img{max-height:44px;width:auto}
-    .feature-grid{grid-template-columns:1fr} .feature{display:grid;grid-template-columns:auto 1fr;column-gap:18px;align-items:start;padding:24px} .feature h3{align-self:center} .feature p{grid-column:2} .feature i,.service i.icon,.contact-item i{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:var(--icon-bg);color:var(--icon-ink);font-size:1.25rem;flex:none} .feature i{grid-row:1/3} .feature h3,.service h3,.process h3,.compact h3{font-size:1.08rem;letter-spacing:-.01em;font-weight:700;color:var(--ink)} .feature p,.side-card p,.service p,.process p,.compact p,.contact-copy{margin-top:10px;color:var(--ink-2);font-size:.93rem;line-height:1.7;word-break:keep-all} .side-card{padding:28px} .side-card h3{color:var(--ink)} .pill-row,.tech{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px} .pill,.tech span,.case-pills span{padding:5px 10px;border-radius:6px;border:1px solid var(--line-strong);background:transparent;font-size:.76rem;font-weight:500;color:var(--ink-2);line-height:1.4} .note-list{list-style:none;display:grid;gap:12px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
-    .service-grid{grid-template-columns:repeat(3,1fr)} .service{padding:26px} .service small,.case-sub{display:block;color:var(--muted);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;line-height:1.5} .service-list{list-style:none;display:grid;gap:10px;margin-top:18px} .service-list li{font-size:.9rem} .process-grid{grid-template-columns:repeat(4,1fr)} .process{padding:26px 24px 28px} .process .num{display:block;font-size:2.4rem;font-weight:600;line-height:1;letter-spacing:-.03em;color:var(--gray-3);margin-bottom:22px} .process h3{padding-top:18px;border-top:1px solid var(--line)}
-    .cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px} .cases-featured{grid-template-columns:repeat(2,1fr)} .cases-featured .case-body{padding:26px 26px 24px} .cases-featured .case-title{font-size:1.4rem} .cases-featured .case-text{font-size:.96rem} .case{display:flex;flex-direction:column;overflow:hidden} .case.card{--surface:#fff;--ink:#161616;--ink-2:#454545;--muted:#6f6f76;--line:#e3e3e4;--line-strong:#d4d4d9} .case-media{position:relative;aspect-ratio:16/9;background:#161616;border-bottom:1px solid var(--line)} .case-media img{width:100%;height:100%;object-fit:cover;transition:.4s} .case:hover .case-media img{transform:scale(1.04)} .case-media[data-video]{cursor:pointer} .case-media iframe{position:absolute;inset:0;width:100%;height:100%;border:0} .case-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3;pointer-events:none} .case-play i{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#fff;color:#000;font-size:1.7rem;box-shadow:0 10px 30px rgba(0,0,0,.35);transition:.2s} .case-media:hover .case-play i,.case-media:focus-visible .case-play i{transform:scale(1.08)} .case-tag{position:absolute;top:14px;left:14px;z-index:2;padding:6px 10px;border-radius:6px;background:rgba(0,0,0,.82);color:#fff;font-size:.72rem;font-weight:500;line-height:1.3} .case-tag.is-new{background:#fff;color:#000} .case-body{display:flex;flex-direction:column;flex:1;padding:22px 22px 20px} .case-title{margin-top:8px;font-size:1.18rem;line-height:1.3;letter-spacing:-.02em;font-weight:700;color:var(--ink);word-break:keep-all} .case-text{margin-top:10px;color:var(--ink-2);font-size:.9rem;line-height:1.7;word-break:keep-all} .case-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px} .case-links{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:auto;padding-top:18px} .case-link{display:inline-flex;gap:6px;align-items:center;font-size:.86rem;font-weight:600;color:var(--ink)} .case-link i{transition:.2s} .case-link:hover i{transform:translate(2px,-2px)} .compact-grid{margin-top:16px} .case-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-    .contact-card{padding:32px} .brief{padding:28px} .contact-card h3,.brief h3{color:var(--ink)} .contact-list{display:grid;gap:18px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line)} .contact-item{display:flex;gap:14px;align-items:flex-start} .contact-item i{width:42px;height:42px;font-size:1.1rem} .contact-item strong{display:block;margin-bottom:3px;font-size:.95rem;color:var(--ink)} .contact-item a,.contact-item address{font-style:normal;color:var(--ink-2);font-size:.93rem;line-height:1.6} .contact-item a:hover{color:var(--ink)} .contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px} .brief ul{list-style:none;display:grid;gap:12px;margin-top:14px} .map{display:block;width:100%;min-height:300px;border:1px solid var(--line);border-radius:var(--radius);margin-top:16px;filter:grayscale(1) contrast(1.02)}
-    footer{padding:44px 0 56px;border-top:1px solid rgba(255,255,255,.1);background:#000} .footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-end} .footer p{color:var(--gray-2);font-size:.86rem} .footer-links{display:flex;flex-wrap:wrap;gap:10px}
-    @media (max-width:1100px){.hero-grid,.trust-grid,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}.hero-grid{gap:48px}.hero-visual::before{inset:20px -20px -20px 20px}.service-grid,.cases,.compact-grid,.process-grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:900px){.section-head{grid-template-columns:1fr;gap:16px}.section-head .desc{padding-bottom:0}}
-    @media (max-width:860px){body.menu-open{overflow:hidden}.nav-toggle{display:inline-flex}.nav-cta{display:none}.nav-links{position:absolute;top:calc(100% + 10px);right:0;width:220px;display:none;flex-direction:column;align-items:stretch;text-align:left;gap:4px;padding:10px;border-radius:12px;background:#161616;border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px rgba(0,0,0,.6)} .nav-links.open{display:flex}.nav-links a{padding:11px 12px;border-radius:8px;white-space:nowrap}.nav-links a:hover{background:#292929}}
-    @media (max-width:720px){.section{padding:80px 0}.hero{padding:48px 0 72px}.hero h1{font-size:clamp(2.05rem,8.5vw,2.6rem)}.hero p{font-size:.96rem}.feature-grid,.service-grid,.cases,.compact-grid,.process-grid{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.feature i{grid-row:auto;margin-bottom:12px}.feature p{grid-column:1}.trust-grid>.card,.side-card,.service,.case-body,.contact-card,.brief,.process,.board{padding:22px}.cases-featured .case-title{font-size:1.2rem}.hero-visual::before{display:none}.kpi strong{font-size:1.6rem}.kpi-dark strong{font-size:2rem}.board-list{grid-template-columns:1fr}.stack-list{gap:8px 10px}.stack-list li{font-size:.74rem}.stack-tools{font-size:.64rem}.ghost{font-size:5rem;top:20px}}
-    @media (max-width:480px){.stack-list{display:block}.stack-list li{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:"name tools" "bar bar";gap:5px 10px;align-items:center;margin-top:10px}.stack-list li:first-child{margin-top:0}.stack-name{grid-area:name}.stack-tools{grid-area:tools;text-align:right;white-space:normal}.stack-bar{grid-area:bar;margin-bottom:2px}}
-    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
-  </style>
-</head>
-<body>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKTG3BWX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="brand" aria-label="AEYES 홈">
-        <img src="assets/images/logo.png" alt="AEYES 로고" width="48" height="48">
-        <span><strong>AEYES Robotics</strong><span>Robotics Engineering Partner</span></span>
-      </a>
-      <div class="nav-wrap">
-        <nav class="nav-links" id="site-nav">
+    </script>
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MKTG3BWX");
+    </script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-EREWEP1B84"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-EREWEP1B84");
+    </script>
+    <link rel="stylesheet" href="assets/css/home.css" />
+    <script src="assets/js/home.js" defer></script>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MKTG3BWX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <a class="skip-link" href="#main">본문으로 이동</a>
+    <header class="header">
+      <div class="shell header-inner">
+        <a class="brand" href="#" aria-label="AEYES 처음으로"
+          >AEYES<span class="brand-dot"></span
+        ></a>
+        <nav class="desktop-nav" aria-label="주 메뉴">
+          <a href="#projects">프로젝트</a>
+          <a href="#services">개발 분야</a>
           <a href="#about">회사 소개</a>
-          <a href="#services">핵심 서비스</a>
-          <a href="#projects">프로젝트 사례</a>
-          <a href="#contact">문의하기</a>
         </nav>
-        <a class="btn btn-primary nav-cta" href="mailto:shjoo@aeyes.co.kr?subject=AEYES%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%AC%B8%EC%9D%98">프로젝트 문의</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기"><i class="ri-menu-line"></i></button>
+        <a class="header-contact" href="#contact"
+          >개발 문의 <span aria-hidden="true">↗</span></a
+        >
+        <button
+          class="menu-button"
+          aria-controls="mobile-nav"
+          aria-expanded="false"
+          aria-label="메뉴 열기"
+        >
+          <span></span><span></span>
+        </button>
       </div>
-    </div>
-  </header>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="모바일 메뉴" hidden>
+        <a href="#projects">프로젝트</a><a href="#services">개발 분야</a
+        ><a href="#about">회사 소개</a><a href="#contact">개발 문의 ↗</a>
+      </nav>
+    </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <span class="chip">Robotics Engineering Partner</span>
-          <h1><span>연구개발과 산업 현장을 잇는</span><strong>로봇 엔지니어링 파트너</strong></h1>
-          <p>흔들리는 차량·선박 위 드론 착륙, 10m 거리 0.05° 자세 측정, 360° 전방향 트레드밀, 초당 4,000회 CAN 2축 동기 제어 — 카탈로그 제품으로는 풀리지 않는 문제들입니다. AEYES는 기구 설계부터 자율주행, 비전, 제어 소프트웨어까지 한 팀에서 통합해, 데모가 아니라 실제 현장에서 동작하는 시스템으로 완성합니다.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">협업 문의하기 <i class="ri-arrow-right-line"></i></a>
-            <a class="btn btn-secondary" href="#projects">대표 사례 보기 <i class="ri-play-circle-line"></i></a>
+          <p class="eyebrow">
+            <span class="square"></span> ROBOTICS ENGINEERING
+          </p>
+          <h1 id="hero-title">
+            로봇 시스템을<br />설계하고 <br /><span>만듭니다.</span>
+          </h1>
+          <p class="hero-description">
+            기구·PCB 설계부터 임베디드,<br />자율주행·비전·제어까지 개발합니다.
+          </p>
+          <a class="button button-primary" href="#projects"
+            >프로젝트 보기 <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="hero-feature">
+          <div class="hero-photo motion-photo">
+            <img
+              src="assets/images/project-motion-head.jpg"
+              alt="CAN 동기 제어를 시험 중인 2축 로보틱헤드"
+              width="1280"
+              height="720"
+              fetchpriority="high"
+            />
+            <span class="photo-label">최근 프로젝트 · 모션 제어</span>
+            <button
+              class="play-button"
+              data-project="motion"
+              aria-label="2축 로보틱헤드 영상 보기"
+            >
+              <svg
+                width="19"
+                height="22"
+                viewBox="0 0 19 22"
+                aria-hidden="true"
+              >
+                <path d="M2 1.8 17.2 11 2 20.2Z" fill="currentColor" />
+              </svg>
+            </button>
           </div>
-        </div>
-        <div class="hero-visual">
-          <div class="board">
-            <div class="board-eyebrow"><span>AEYES at a glance</span><span class="chip">Factory &amp; Field Driven</span></div>
-            <h2>설계부터 현장 적용까지, 한 팀이 끝냅니다.</h2>
-            <p>기구·전장·임베디드·자율주행·비전·제어 UI를 외주 없이 한 팀이 통합합니다. 인터페이스에서 일정이 무너지는 일이 없습니다.</p>
-            <div class="kpi-grid">
-              <div class="kpi kpi-dark"><span>누적 프로젝트</span><strong>28<small>건</small></strong><em><i class="ri-arrow-right-up-line"></i> 국책 연구과제 포함</em></div>
-              <div class="kpi"><span>협업 연구기관</span><strong>3<small>곳</small></strong><b class="kpi-note">KIMM · ETRI · KARI</b></div>
-              <div class="kpi"><span>거점</span><strong>2<small>곳</small></strong><b class="kpi-note">대전 R&amp;D · 울산 생산</b></div>
-              <div class="kpi kpi-wide"><span>내재화 기술 영역</span><strong>6<small>개</small></strong></div>
-            </div>
-            <div class="stack">
-              <div class="stack-head"><span>In-house Stack</span><span>한 팀 내재화</span></div>
-              <ul class="stack-list">
-                <li><span class="stack-name">기구·구조 설계·해석</span><i class="stack-bar"></i><span class="stack-tools">SolidWorks · simulation</span></li>
-                <li><span class="stack-name">전장·전원</span><i class="stack-bar"></i><span class="stack-tools">산업용 서보 · BLDC · 전원 분배</span></li>
-                <li><span class="stack-name">임베디드·제어기</span><i class="stack-bar"></i><span class="stack-tools">C/C++ · Modbus/CAN · STM32 · ESP32</span></li>
-                <li><span class="stack-name">자율주행·SLAM</span><i class="stack-bar"></i><span class="stack-tools">ROS2 · Nav2</span></li>
-                <li><span class="stack-name">비전·정밀 측정</span><i class="stack-bar"></i><span class="stack-tools">OpenCV · PyTorch · AI</span></li>
-                <li><span class="stack-name">제어 UI·통합</span><i class="stack-bar"></i><span class="stack-tools">WPF/C# · Android</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container trust-grid">
-        <div class="card">
-          <span class="chip">Working Standard</span>
-          <h2 class="title title-sm">AEYES가 프로젝트를 수행하는 방식</h2>
-          <p class="desc">프로젝트를 살리는 것은 영업 멘트가 아니라 정확한 기술 판단입니다. AEYES는 요구사항 정의부터 구현, 검증, 현장 반영까지 모든 결정을 기술 근거 위에서 내립니다.</p>
-          <ul class="trust-points">
-            <li><i class="ri-user-settings-line"></i><span>안 되는 것은 안 된다고 말씀드립니다. 기술 난이도와 리스크, 일정 영향을 착수 전에 투명하게 공유합니다.</span></li>
-            <li><i class="ri-links-line"></i><span>기구, 전장, 임베디드, AI, PC UI를 한 팀이 설계하므로 업체 간 책임 공방으로 시간이 새지 않습니다.</span></li>
-            <li><i class="ri-hammer-line"></i><span>진동, 온도, 공간 제약은 물론 유지보수 동선까지 — 납품 이후의 운영을 미리 설계에 반영합니다.</span></li>
-          </ul>
-        </div>
-        <div class="card">
-          <span class="chip">Selected Partners</span>
-          <h2 class="title title-sm">주요 협업 기관</h2>
-          <p class="desc">까다로운 검증 기준을 가진 국책 연구기관들이 AEYES를 선택했습니다. 공개 가능한 사례 기준입니다.</p>
-          <div class="logo-row">
-            <div class="logo-box"><img src="assets/images/logo-kimm.jpg" alt="한국기계연구원 KIMM" width="791" height="150" loading="lazy"></div>
-            <div class="logo-box"><img src="assets/images/logo-etri.jpg" alt="한국전자통신연구원 ETRI" width="442" height="148" loading="lazy"></div>
-            <div class="logo-box"><img src="assets/images/logo-kari.jpg" alt="한국항공우주연구원 KARI" width="476" height="150" loading="lazy"></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section band-dark">
-      <span class="ghost" aria-hidden="true">AEYES</span>
-      <div class="container">
-        <div class="section-head">
-          <div><span class="chip">Company Positioning</span><h2 class="title">외주 개발사가 아니라, 문제를 구조적으로 푸는 기술 파트너입니다.</h2></div>
-          <p class="desc">사양서를 받아 그대로 만드는 외주가 아니라, 문제 정의부터 함께합니다. 로봇이 실제로 동작하기 위해 필요한 하드웨어, 제어, 비전, 주행 로직을 하나의 구조로 설계합니다.</p>
-        </div>
-        <div class="about-grid">
-          <div class="feature-grid">
-            <article class="feature card"><i class="ri-discuss-line"></i><h3>기술 의사결정 중심 소통</h3><p>막연한 요구를 측정 가능한 스펙으로 번역하고, 구현 가능성과 리스크를 검토한 뒤 착수합니다. 영업 담당이 아닌 엔지니어가 직접 답합니다.</p></article>
-            <article class="feature card"><i class="ri-stack-line"></i><h3>Full-Stack 로봇 통합 개발</h3><p>기구 설계부터 전장, 임베디드 제어, 자율주행, 비전, UI까지 한 팀이 만듭니다. 외주를 쪼갤 때 생기는 인터페이스 공백이 없습니다.</p></article>
-            <article class="feature card"><i class="ri-building-2-line"></i><h3>현장 기반 검증 우선</h3><p>실험실 데모는 시작일 뿐입니다. 진동, 조도 변화, 공간 제약 같은 실제 운용 조건에서의 검증을 완성 기준으로 삼습니다.</p></article>
-          </div>
-          <aside class="card side-card">
-            <h3 style="font-size:1.25rem;letter-spacing:-.03em">적용 분야</h3>
-            <p>연구개발용 시제부터 산업용 이동체, 정밀 측정 시스템, 검사 자동화, 제어 장비까지 폭넓은 프로젝트를 수행합니다.</p>
-            <div class="pill-row">
-              <span class="pill">AGV / AMR</span><span class="pill">UAV Landing</span><span class="pill">Vision Inspection</span><span class="pill">Manipulator</span><span class="pill">Precision Measurement</span><span class="pill">Control UI</span><span class="pill">ROS2 Integration</span><span class="pill">Sensor Fusion</span>
-            </div>
-            <ul class="note-list">
-              <li><i class="ri-check-line"></i><span>요구 성능이 명확한 과제일수록 설계와 검증 체계를 빠르게 정리할 수 있습니다.</span></li>
-              <li><i class="ri-check-line"></i><span>기존 장비 개조, 신규 플랫폼 개발, 알고리즘 고도화 등 다양한 방식의 협업이 가능합니다.</span></li>
-              <li><i class="ri-check-line"></i><span>프로젝트 특성에 따라 기구, 제어, 비전, 주행 요소를 조합해 최적의 아키텍처를 제안합니다.</span></li>
-            </ul>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section id="services" class="section band-black">
-      <div class="container">
-        <div class="section-head">
-          <div><span class="chip">Core Services</span><h2 class="title">핵심 기능 단위가 아니라, 시스템 완성 단위로 개발합니다.</h2></div>
-          <p class="desc">프로젝트 성격에 따라 하드웨어, 주행 알고리즘, 비전, 제어 소프트웨어를 조합해 목적에 맞는 로봇 시스템을 설계하고 구현합니다.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service card"><small>Hardware Platform</small><h3 style="margin-top:12px">로봇 · 주행체 플랫폼 설계</h3><p>이동체, 실험 플랫폼, 특수 목적 장비의 구조 설계부터 전장 통합까지 수행합니다.</p><ul class="service-list"><li><i class="ri-checkbox-circle-fill"></i><span>Mecanum, Ackermann 등 주행 구조 설계</span></li><li><i class="ri-checkbox-circle-fill"></i><span>배터리, 드라이버, 전원 분배, 센서 통합</span></li><li><i class="ri-checkbox-circle-fill"></i><span>AGV/AMR 및 연구용 시제 플랫폼 제작</span></li></ul><div class="tech"><span>SolidWorks</span><span>BLDC Control</span><span>AGV/AMR</span><span>Mechanism Design</span></div></article>
-          <article class="service card"><small>Vision &amp; Intelligence</small><h3 style="margin-top:12px">비전 검사 · 측정 · 인식 시스템</h3><p>산업용 카메라와 딥러닝, 고전 비전 기법을 결합해 제품 검사와 자세 측정 시스템을 설계합니다.</p><ul class="service-list"><li><i class="ri-checkbox-circle-fill"></i><span>검사 자동화와 위치 인식 알고리즘 개발</span></li><li><i class="ri-checkbox-circle-fill"></i><span>고속 측정 및 추적용 비전 파이프라인 구성</span></li><li><i class="ri-checkbox-circle-fill"></i><span>현장 카메라와 조명 조건 기반 최적화</span></li></ul><div class="tech"><span>OpenCV</span><span>PyTorch</span><span>YOLO</span><span>Industrial Camera</span></div></article>
-          <article class="service card"><small>Control &amp; Integration</small><h3 style="margin-top:12px">제어 · 모니터링 소프트웨어</h3><p>장비 제어용 UI, 임베디드 제어기, ROS2 노드, 통신 프로토콜을 통합해 운영 가능한 체계를 구축합니다.</p><ul class="service-list"><li><i class="ri-checkbox-circle-fill"></i><span>PC 기반 UI 및 장비 모니터링 화면 개발</span></li><li><i class="ri-checkbox-circle-fill"></i><span>ROS2 노드 및 센서/액추에이터 인터페이스 구현</span></li><li><i class="ri-checkbox-circle-fill"></i><span>Modbus, CAN 등 산업용 통신 연동</span></li></ul><div class="tech"><span>C/C++</span><span>ROS2</span><span>WPF/C#</span><span>Modbus/CAN</span></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <span class="ghost" aria-hidden="true">Process</span>
-      <div class="container">
-        <div class="section-head">
-          <div><span class="chip">Project Workflow</span><h2 class="title">프로젝트 진행 방식</h2></div>
-          <p class="desc">요구사항의 모호함이 커질수록 일정과 품질 리스크가 커집니다. AEYES는 문제를 구조화하고 구현 범위를 명확히 정리하는 방식으로 프로젝트를 진행합니다.</p>
-        </div>
-        <div class="process-grid">
-          <article class="process card"><span class="num">01</span><h3>문제 정의</h3><p>적용 환경, 목표 성능, 인터페이스, 일정 제약을 정리해 실제 과업 범위를 설정합니다.</p></article>
-          <article class="process card"><span class="num">02</span><h3>시스템 설계</h3><p>기구, 센서, 제어 구조, 비전 파이프라인, 주행 로직을 통합한 아키텍처를 수립합니다.</p></article>
-          <article class="process card"><span class="num">03</span><h3>구현 및 검증</h3><p>프로토타입 제작, 알고리즘 적용, UI 개발, 통합 테스트를 통해 요구 성능을 검증합니다.</p></article>
-          <article class="process card"><span class="num">04</span><h3>현장 반영</h3><p>운용 조건에 맞춘 파라미터 조정과 개선 작업을 수행하며 추가 고도화 방향을 제안합니다.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section band-dark">
-      <span class="ghost" aria-hidden="true">Cases</span>
-      <div class="container">
-        <div class="section-head">
-          <div><span class="chip">Featured Cases</span><h2 class="title">대표 프로젝트 사례</h2></div>
-          <p class="desc">말보다 결과물이 정확합니다. 공개 가능한 범위에서 선별한 대표 사례이며, 모두 실제 동작 영상으로 확인하실 수 있습니다.</p>
-        </div>
-        <div class="cases cases-featured">
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/7x7Fq3113hs/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7x7Fq3113hs/hqdefault.jpg'" alt="CAN 기반 2축 모터 초고속 동기화 제어 및 로보틱헤드 설계" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag is-new">NEW · 모션 제어</span></div><div class="case-body"><span class="case-sub">CAN Bus · CSP / CSV · 4 kHz Real-time Sync</span><h3 class="case-title">CAN 기반 2축 모터 초고속 동기화 제어 및 로보틱헤드 설계</h3><p class="case-text">EtherCAT이나 상용 모션 라이브러리 없이 CSP(위치)·CSV(속도) 동기 프로파일을 저수준에서 직접 구현해, CAN 통신 모터 2축을 초당 4,000회 주기로 동기 제어한 사례입니다. 팬·틸트 로보틱 카메라 헤드에 적용해 두 축 간 위치·속도 오차를 최소화했고, 백래시 0.0009° 수준의 정밀 구동을 확보했습니다.</p><div class="case-pills"><span>초당 4,000회 동기 제어</span><span>0.001° 반복정밀도</span><span>0.005° 절대정확도</span><span>페이로드 15kg</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=7x7Fq3113hs" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a><a class="case-link" href="https://blog.naver.com/aeyes_dev/224412347992" target="_blank" rel="noreferrer">기술 블로그 글 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/owjjG-0rWYw/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/owjjG-0rWYw/hqdefault.jpg'" alt="UAV 실시간 수평 보정 랜딩 패드" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">UAV 랜딩 시스템</span></div><div class="case-body"><span class="case-sub">Servo Control · IMU Prediction · Mechanism</span><h3 class="case-title">UAV 실시간 수평 보정 랜딩 패드</h3><p class="case-text">고정밀 IMU 센싱과 모션 예측 알고리즘을 통해 흔들리는 차량이나 선박 위에서도 드론이 안정적으로 착륙할 수 있도록 설계한 스마트 랜딩 패드입니다.</p><div class="case-pills"><span>50kg급 하중 대응</span><span>실시간 수평 유지</span><span>메커니즘 통합 설계</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=owjjG-0rWYw" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-        </div>
-        <div class="cases compact-grid">
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/V8b9p72JH_s/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/V8b9p72JH_s/hqdefault.jpg'" alt="ROS2 Nav2 장애물 회피 알고리즘 비교" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">내비게이션 알고리즘</span></div><div class="case-body"><span class="case-sub">ROS2 Nav2 · Local Planner · Obstacle Avoidance</span><h3 class="case-title">ROS2 Nav2 장애물 회피 알고리즘 비교</h3><p class="case-text">ROS2 Nav2 기반으로 5종의 장애물 회피 알고리즘을 동일 환경에서 비교 검증한 사례입니다. 동적 장애물 조건에서 경로 추종과 회피 성능을 분석해 현장에 맞는 최적의 컨트롤러를 선정합니다.</p><div class="case-pills"><span>5종 알고리즘 비교</span><span>동적 장애물 대응</span><span>Nav2 기반 검증</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=V8b9p72JH_s" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/dt_D1lG4O5k/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/dt_D1lG4O5k/hqdefault.jpg'" alt="전방향 러닝 플랫폼" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">인터랙션 플랫폼</span></div><div class="case-body"><span class="case-sub">Motion Prediction · Omni-Directional Treadmill</span><h3 class="case-title">전방향 러닝 플랫폼 (ODT)</h3><p class="case-text">사용자의 보행 의도를 예측해 360도 모든 방향의 움직임을 수용하는 트레드밀 시스템입니다. 고속 모션 캡처와 다축 서보 제어를 융합했습니다.</p><div class="case-pills"><span>360° 보행 대응</span><span>모션 예측 제어</span><span>다축 서보 통합</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=dt_D1lG4O5k" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/__xpV4BS0xM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/__xpV4BS0xM/hqdefault.jpg'" alt="초정밀 3자유도 자세 측정 시스템" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">정밀 측정 시스템</span></div><div class="case-body"><span class="case-sub">High-speed Vision · PnP Algorithm</span><h3 class="case-title">초정밀 3자유도 자세 측정 시스템</h3><p class="case-text">10m 거리에서 타겟의 3차원 자세를 0.05도 정밀도로 측정하는 광학 시스템입니다. 독자적인 마커 설계와 EKF 기반 추정을 적용했습니다.</p><div class="case-pills"><span>10m 거리 측정</span><span>0.05° 정밀도</span><span>비전 알고리즘 고도화</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=__xpV4BS0xM" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/Lm9HZR8afEM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/Lm9HZR8afEM/hqdefault.jpg'" alt="실내 자율주행 매카넘 플랫폼" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">자율주행 플랫폼</span></div><div class="case-body"><span class="case-sub">Mecanum Drive · Indoor SLAM</span><h3 class="case-title">실내 자율주행 매카넘 플랫폼</h3><p class="case-text">실내 측위 시스템과 자율주행 로직을 통합해 좁은 공간에서도 유연하게 이동하는 매카넘 휠 기반 로봇 플랫폼입니다.</p><div class="case-pills"><span>실내 정밀 주행</span><span>SLAM 통합</span><span>장애물 회피</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=Lm9HZR8afEM" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/ii25sTff9G8/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/ii25sTff9G8/hqdefault.jpg'" alt="4축 매니퓰레이터 시스템" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">매니퓰레이터 시스템</span></div><div class="case-body"><span class="case-sub">Manipulator · Motion Control · High Load</span><h3 class="case-title">4축 매니퓰레이터 시스템</h3><p class="case-text">정밀 위치 제어와 고하중 대응을 동시에 고려한 4축 로봇 시스템으로, 반복 하중 조건을 반영한 구조 설계가 핵심입니다.</p><div class="case-pills"><span>고하중 대응</span><span>정밀 위치 제어</span><span>구조 설계 통합</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=ii25sTff9G8" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-          <article class="case card"><div class="case-media"><img src="https://img.youtube.com/vi/qU1RXsmZKLo/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/qU1RXsmZKLo/hqdefault.jpg'" alt="지능형 Follow-Me 이동체" width="1280" height="720" loading="lazy" decoding="async"><span class="case-tag">추종 이동체</span></div><div class="case-body"><span class="case-sub">Sensor Fusion · Tracking · Obstacle Avoidance</span><h3 class="case-title">지능형 Follow-Me 이동체</h3><p class="case-text">초음파와 LiDAR 센서를 융합해 사용자를 추종하고 장애물을 회피하는 이동체로, 센서 퓨전과 추종 제어가 결합된 사례입니다.</p><div class="case-pills"><span>센서 퓨전</span><span>사용자 추종</span><span>장애물 회피</span></div><div class="case-links"><a class="case-link" href="https://www.youtube.com/watch?v=qU1RXsmZKLo" target="_blank" rel="noreferrer">영상으로 보기 <i class="ri-arrow-right-up-line"></i></a></div></div></article>
-        </div>
-        <div class="case-actions">
-          <a class="btn btn-secondary" href="https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88" target="_blank" rel="noreferrer">유튜브 채널 <i class="ri-arrow-right-up-line"></i></a>
-          <a class="btn btn-ghost" href="https://blog.naver.com/aeyes_dev" target="_blank" rel="noreferrer">기술 블로그 <i class="ri-arrow-right-up-line"></i></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section band-black">
-      <span class="ghost" aria-hidden="true">Contact</span>
-      <div class="container">
-        <div class="section-head">
-          <div><span class="chip">Contact</span><h2 class="title">문제 정의가 선명할수록, 솔루션은 더 빨라집니다.</h2></div>
-          <p class="desc">프로젝트 목적, 운용 환경, 필요한 기능, 목표 성능을 간단히 정리해 보내주시면 초기 검토와 협업 범위 제안이 훨씬 빠르게 진행됩니다.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-card card card-white">
+          <div class="hero-caption">
             <div>
-              <h3 style="font-size:1.45rem;letter-spacing:-.03em">프로젝트 문의</h3>
-              <p class="contact-copy">아이디어 단계여도 괜찮습니다. 연구 과제, 시제품 개발, 자동화 장비, 자율주행 플랫폼, 비전 검사 시스템 — 어떤 단계의 프로젝트든 엔지니어가 직접 검토하고 현실적인 접근 방식을 제안해 드립니다.</p>
+              <span class="caption-label">CAN 기반 2축 동기 제어</span>
+              <p>2축 로보틱헤드</p>
             </div>
-            <div class="contact-list">
-              <div class="contact-item"><i class="ri-mail-send-line"></i><div><strong>Email</strong><a href="mailto:shjoo@aeyes.co.kr">shjoo@aeyes.co.kr</a></div></div>
-              <div class="contact-item"><i class="ri-building-line"></i><div><strong>Head Office (R&amp;D)</strong><address>대전광역시 유성구 테크노4로 17<br>대덕비즈센터 A717</address></div></div>
-              <div class="contact-item"><i class="ri-settings-3-line"></i><div><strong>Factory</strong><address>울산광역시 북구 천마1로 35</address></div></div>
-            </div>
-            <div class="contact-actions">
-              <a class="btn btn-primary" href="mailto:shjoo@aeyes.co.kr?subject=AEYES%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EB%AC%B8%EC%9D%98">이메일 문의 <i class="ri-send-plane-line"></i></a>
-              <a class="btn btn-secondary" href="https://blog.naver.com/aeyes_dev" target="_blank" rel="noreferrer">기술 블로그 보기 <i class="ri-arrow-right-up-line"></i></a>
-            </div>
-          </div>
-          <div>
-            <div class="brief card">
-              <h3 style="font-size:1.15rem;letter-spacing:-.03em">문의 시 포함하면 좋은 정보</h3>
-              <ul>
-                <li><i class="ri-check-line"></i><span>적용 환경: 실내/실외, 연구용/산업용, 이동체/고정형 여부</span></li>
-                <li><i class="ri-check-line"></i><span>필요 기능: 자율주행, 비전 검사, 제어 UI, 로봇 플랫폼 등</span></li>
-                <li><i class="ri-check-line"></i><span>목표 성능: 정밀도, 속도, 적재하중, 측정 거리, 검출 정확도 등</span></li>
-                <li><i class="ri-check-line"></i><span>일정과 제약: 예산, 납기, 인터페이스, 기존 시스템 여부</span></li>
-              </ul>
-            </div>
-            <iframe class="map" src="https://maps.google.com/maps?q=36.432888%2C127.395122&z=15&output=embed" loading="lazy" allowfullscreen title="AEYES R&D 위치"></iframe>
+            <button class="text-link" data-project="motion">
+              영상 보기 <span aria-hidden="true">↗</span>
+            </button>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer>
-    <div class="container footer">
-      <div>
-        <strong style="display:block;font-size:1rem;letter-spacing:-.02em">주식회사 에이아이즈 | AEYES Robotics</strong>
-        <p>로봇 시스템 설계, 자율주행, 비전·제어 통합 개발</p>
-      </div>
-      <div class="footer-links">
-        <a class="btn btn-secondary" href="https://blog.naver.com/aeyes_dev" target="_blank" rel="noreferrer">기술 블로그</a>
-        <a class="btn btn-secondary" href="https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88" target="_blank" rel="noreferrer">유튜브 채널</a>
-      </div>
-      <p>© <span id="year"></span> AEYES Robotics. All rights reserved.</p>
-    </div>
-  </footer>
+      <section
+        id="projects"
+        class="projects section-pad"
+        aria-labelledby="projects-title"
+      >
+        <div class="shell">
+          <div class="section-top">
+            <div>
+              <p class="eyebrow">01 / PROJECTS</p>
+              <h2 id="projects-title">진행한 프로젝트</h2>
+            </div>
+            <p class="section-note">직접 설계하고 개발한 장비입니다.</p>
+          </div>
+          <div id="project-grid" class="project-grid">
+            <article class="project-card">
+              <button
+                class="project-image motion-image"
+                data-project="motion"
+                aria-label="2축 로보틱헤드 영상 보기"
+              >
+                <img
+                  src="assets/images/project-motion-head.jpg"
+                  alt="2축 로보틱헤드와 CAN 모터 동기 제어 화면"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">모션 제어</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="motion">2축 로보틱헤드</button>
+                </h3>
+                <p>CAN 통신으로 두 모터의 위치와 속도를 동기 제어합니다.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <button
+                class="project-image"
+                data-project="landing"
+                aria-label="드론 랜딩 패드 영상 보기"
+              >
+                <img
+                  src="assets/images/project-landing-pad.jpg"
+                  alt="수평 보정 장치 위 드론 랜딩 패드"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">기구·제어</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3><button data-project="landing">드론 랜딩 패드</button></h3>
+                <p>차량·선박의 움직임에 맞춰 착륙면의 수평을 보정합니다.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <button
+                class="project-image"
+                data-project="follow"
+                aria-label="사용자 추종 이동체 영상 보기"
+              >
+                <img
+                  src="assets/images/project-follow-me.jpg"
+                  alt="야외에서 사용자 추종 주행을 시험하는 이동체"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">로봇·주행</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="follow">사용자 추종 이동체</button>
+                </h3>
+                <p>초음파와 LiDAR로 사용자를 따라가고 장애물을 피합니다.</p>
+              </div>
+            </article>
+            <article class="project-card">
+              <button
+                class="project-image"
+                data-project="measurement"
+                aria-label="광학 자세 측정 시스템 영상 보기"
+              >
+                <img
+                  src="assets/images/project-measurement.jpg"
+                  alt="카메라로 마커를 인식해 자세를 측정하는 화면"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">비전·측정</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="measurement">
+                    광학 자세 측정 시스템
+                  </button>
+                </h3>
+                <p>카메라와 마커를 이용해 대상의 자세를 측정합니다.</p>
+              </div>
+            </article>
+            <article class="project-card extra-project" hidden>
+              <button
+                class="project-image"
+                data-project="navigation"
+                aria-label="장애물 회피 알고리즘 비교 영상 보기"
+              >
+                <img
+                  src="assets/images/project-navigation.jpg"
+                  alt="ROS2 Nav2 장애물 회피 알고리즘 비교 화면"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">자율주행</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="navigation">
+                    장애물 회피 알고리즘 비교
+                  </button>
+                </h3>
+                <p>같은 환경에서 다섯 가지 주행 알고리즘을 비교합니다.</p>
+              </div>
+            </article>
+            <article class="project-card extra-project" hidden>
+              <button
+                class="project-image"
+                data-project="mecanum"
+                aria-label="실내 자율주행 플랫폼 영상 보기"
+              >
+                <img
+                  src="assets/images/project-mecanum.jpg"
+                  alt="연구실에서 주행 중인 매카넘 휠 로봇"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">로봇·주행</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="mecanum">실내 자율주행 플랫폼</button>
+                </h3>
+                <p>
+                  매카넘 휠 플랫폼에 실내 측위와 자율주행 기능을 통합합니다.
+                </p>
+              </div>
+            </article>
+            <article class="project-card extra-project" hidden>
+              <button
+                class="project-image"
+                data-project="manipulator"
+                aria-label="4축 매니퓰레이터 영상 보기"
+              >
+                <img
+                  src="assets/images/project-manipulator.jpg"
+                  alt="동작을 시험 중인 4축 매니퓰레이터"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">기구·제어</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3>
+                  <button data-project="manipulator">4축 매니퓰레이터</button>
+                </h3>
+                <p>반복 하중을 고려한 구조와 정밀 위치 제어를 개발합니다.</p>
+              </div>
+            </article>
+            <article class="project-card extra-project" hidden>
+              <button
+                class="project-image"
+                data-project="odt"
+                aria-label="전방향 러닝 플랫폼 영상 보기"
+              >
+                <img
+                  src="assets/images/project-odt.jpg"
+                  alt="전방향 러닝 플랫폼의 보행 시험"
+                  width="1280"
+                  height="720"
+                  loading="lazy"
+                /><span class="card-type">기구·제어</span
+                ><span class="image-arrow" aria-hidden="true">↗</span>
+              </button>
+              <div class="project-text">
+                <h3><button data-project="odt">전방향 러닝 플랫폼</button></h3>
+                <p>보행 방향을 예측해 360도 움직임을 지원합니다.</p>
+              </div>
+            </article>
+          </div>
+          <div class="more-row">
+            <button
+              id="more-projects"
+              class="button button-outline"
+              aria-expanded="false"
+              aria-controls="project-grid"
+            >
+              <span>프로젝트 더 보기</span
+              ><span class="more-icon" aria-hidden="true">＋</span></button
+            ><a
+              class="text-link"
+              href="https://blog.naver.com/aeyes_dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              >기술 블로그 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
 
-  <script>
-    const toggle = document.querySelector(".nav-toggle");
-    const nav = document.querySelector(".nav-links");
-    const closeMenu = () => {
-      nav?.classList.remove("open");
-      toggle?.setAttribute("aria-expanded", "false");
-      document.body.classList.remove("menu-open");
-    };
-    toggle?.addEventListener("click", () => {
-      const open = nav?.classList.toggle("open");
-      toggle.setAttribute("aria-expanded", String(open));
-      document.body.classList.toggle("menu-open", open);
-    });
-    nav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", (event) => { if (event.key === "Escape") closeMenu(); });
-    document.getElementById("year").textContent = new Date().getFullYear();
+      <section
+        id="services"
+        class="expertise section-pad shell"
+        aria-labelledby="expertise-title"
+      >
+        <div class="section-top">
+          <div>
+            <p class="eyebrow">02 / EXPERTISE</p>
+            <h2 id="expertise-title">개발 분야</h2>
+          </div>
+        </div>
+        <div class="expertise-list">
+          <article class="expertise-item">
+            <span class="item-number">01</span>
+            <div>
+              <h3>로봇·주행체</h3>
+              <p>
+                이동체와 실험 장비의 기구·전장을 설계하고,<br
+                  class="desktop-break"
+                />
+                센서와 자율주행 기능을 통합합니다.
+              </p>
+            </div>
+            <ul class="skill-tags" aria-label="관련 기술">
+              <li>기구 설계</li>
+              <li>전장</li>
+              <li>ROS2</li>
+            </ul>
+            <svg
+              class="expertise-icon"
+              viewBox="0 0 90 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="m45 12 29 17v34L45 80 16 63V29L45 12Z M16 29l29 17 29-17M45 46v34M31 21l29 17v34"
+              />
+              <circle cx="45" cy="46" r="5" fill="currentColor" stroke="none" />
+            </svg>
+          </article>
+          <article class="expertise-item">
+            <span class="item-number">02</span>
+            <div>
+              <h3>PCB·임베디드</h3>
+              <p>
+                제어 보드의 회로와 PCB를 설계하고,<br class="desktop-break" />
+                펌웨어를 개발합니다.
+              </p>
+            </div>
+            <ul class="skill-tags" aria-label="관련 기술">
+              <li>회로·PCB 설계</li>
+              <li>STM32·ESP32</li>
+              <li>펌웨어</li>
+            </ul>
+            <svg
+              class="expertise-icon"
+              viewBox="0 0 90 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <rect x="12" y="12" width="66" height="66" rx="3" />
+              <rect x="32" y="32" width="26" height="26" />
+              <path
+                d="M20 25h25v7M58 40h12M40 58v12H22M58 51h9v16M25 44h7M50 20v12M25 58v6"
+              />
+              <circle cx="20" cy="25" r="3" />
+              <circle cx="70" cy="40" r="3" />
+              <circle cx="22" cy="70" r="3" />
+              <circle cx="67" cy="67" r="3" />
+            </svg>
+          </article>
+          <article class="expertise-item">
+            <span class="item-number">03</span>
+            <div>
+              <h3>비전 검사·측정</h3>
+              <p>
+                카메라와 영상 알고리즘으로 제품을 검사하고,<br
+                  class="desktop-break"
+                />
+                위치와 자세를 측정합니다.
+              </p>
+            </div>
+            <ul class="skill-tags" aria-label="관련 기술">
+              <li>OpenCV</li>
+              <li>딥러닝</li>
+              <li>정밀 측정</li>
+            </ul>
+            <svg
+              class="expertise-icon"
+              viewBox="0 0 90 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 29V12h17M61 12h17v17M78 61v17H61M29 78H12V61M5 45h80M45 5v80"
+              />
+              <circle cx="45" cy="45" r="24" />
+              <circle cx="45" cy="45" r="9" />
+            </svg>
+          </article>
+          <article class="expertise-item">
+            <span class="item-number">04</span>
+            <div>
+              <h3>장비 제어 소프트웨어</h3>
+              <p>
+                모터와 장비를 제어하고,<br class="desktop-break" />
+                운전 상태를 확인하는 소프트웨어를 개발합니다.
+              </p>
+            </div>
+            <ul class="skill-tags" aria-label="관련 기술">
+              <li>WPF·C#</li>
+              <li>CAN·Modbus</li>
+              <li>제어 UI</li>
+            </ul>
+            <svg
+              class="expertise-icon"
+              viewBox="0 0 90 90"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <rect x="19" y="19" width="52" height="52" rx="3" />
+              <rect x="32" y="32" width="26" height="26" />
+              <path
+                d="M32 7v12M45 7v12M58 7v12M32 71v12M45 71v12M58 71v12M7 32h12M7 45h12M7 58h12M71 32h12M71 45h12M71 58h12"
+              />
+            </svg>
+          </article>
+        </div>
+      </section>
 
-    document.querySelectorAll(".case-media").forEach((media) => {
-      const img = media.querySelector("img");
-      const match = img && img.src.match(/\/vi\/([\w-]+)\//);
-      if (!match) return;
-      const videoId = match[1];
-      media.dataset.video = videoId;
-      media.setAttribute("role", "button");
-      media.setAttribute("tabindex", "0");
-      media.setAttribute("aria-label", (img.alt || "프로젝트") + " 영상 재생");
-      const play = document.createElement("span");
-      play.className = "case-play";
-      play.innerHTML = '<i class="ri-play-fill"></i>';
-      media.appendChild(play);
-      const playVideo = () => {
-        if (media.querySelector("iframe")) return;
-        const iframe = document.createElement("iframe");
-        iframe.src = "https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0";
-        iframe.title = img.alt || "AEYES 프로젝트 영상";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-        iframe.referrerPolicy = "strict-origin-when-cross-origin";
-        media.innerHTML = "";
-        media.appendChild(iframe);
-        delete media.dataset.video;
-        media.removeAttribute("role");
-        media.removeAttribute("tabindex");
-        media.removeAttribute("aria-label");
-      };
-      media.addEventListener("click", playVideo);
-      media.addEventListener("keydown", (event) => {
-        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); playVideo(); }
-      });
-    });
-</script>
-</body>
+      <section
+        id="about"
+        class="company section-pad"
+        aria-labelledby="company-title"
+      >
+        <div class="shell company-grid">
+          <div>
+            <p class="eyebrow">03 / ABOUT AEYES</p>
+            <h2 id="company-title">주식회사 에이아이즈</h2>
+            <p class="company-description">
+              로봇과 자동화 장비를 개발합니다.<br />대전에서 연구하고, 울산에서
+              제작합니다.
+            </p>
+          </div>
+          <div class="partners">
+            <h3>협업 연구기관</h3>
+            <div class="partner-logos">
+              <img
+                src="assets/images/logo-kimm.jpg"
+                alt="한국기계연구원 KIMM"
+                width="791"
+                height="150"
+                loading="lazy"
+              /><img
+                src="assets/images/logo-etri.jpg"
+                alt="한국전자통신연구원 ETRI"
+                width="442"
+                height="148"
+                loading="lazy"
+              /><img
+                src="assets/images/logo-kari.jpg"
+                alt="한국항공우주연구원 KARI"
+                width="476"
+                height="150"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="contact"
+        class="contact section-pad"
+        aria-labelledby="contact-title"
+      >
+        <div class="shell contact-grid">
+          <div>
+            <p class="eyebrow">LET’S TALK</p>
+            <h2 id="contact-title">개발 문의</h2>
+            <p>필요한 장비와 기능, 희망 일정을 알려주세요.</p>
+            <a class="email-link" href="mailto:shjoo@aeyes.co.kr"
+              >shjoo@aeyes.co.kr <span aria-hidden="true">↗</span></a
+            ><button class="copy-email" id="copy-email">
+              이메일 주소 복사
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <rect x="5" y="5" width="9" height="9" rx="1" />
+                <path d="M11 5V2H2v9h3" />
+              </svg></button
+            ><span id="copy-status" class="copy-status" role="status"></span>
+          </div>
+          <div class="locations">
+            <div>
+              <h3>대전 · 연구개발</h3>
+              <address>
+                대전광역시 유성구 테크노4로 17<br />대덕비즈센터 A717
+              </address>
+              <a
+                href="https://maps.google.com/?q=대전광역시+유성구+테크노4로+17"
+                target="_blank"
+                rel="noopener noreferrer"
+                >지도 보기 ↗</a
+              >
+            </div>
+            <div>
+              <h3>울산 · 생산</h3>
+              <address>울산광역시 북구 천마1로 35</address>
+              <a
+                href="https://maps.google.com/?q=울산광역시+북구+천마1로+35"
+                target="_blank"
+                rel="noopener noreferrer"
+                >지도 보기 ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="shell footer-inner">
+        <a class="brand" href="#" aria-label="AEYES 처음으로"
+          >AEYES<span class="brand-dot"></span></a
+        ><span>© <span id="year">2026</span> AEYES. All rights reserved.</span
+        ><a
+          href="https://blog.naver.com/aeyes_dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          >기술 블로그 ↗</a
+        ><a
+          href="https://www.youtube.com/@%EC%A3%BC%EC%8B%9D%ED%9A%8C%EC%82%AC%EC%97%90%EC%9D%B4%EC%95%84%EC%9D%B4%EC%A6%88"
+          target="_blank"
+          rel="noopener noreferrer"
+          >YouTube ↗</a
+        >
+      </div>
+    </footer>
+
+    <dialog id="project-dialog" aria-labelledby="dialog-title">
+      <div class="dialog-top">
+        <span class="eyebrow">AEYES PROJECT</span
+        ><button id="close-dialog" aria-label="프로젝트 영상 닫기">✕</button>
+      </div>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div id="video-container" class="video-container"></div>
+      <div class="dialog-bottom">
+        <span id="dialog-spec"></span>
+        <div class="dialog-links">
+          <a
+            id="technical-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+            >기술 글 보기 ↗</a
+          ><a id="youtube-link" target="_blank" rel="noopener noreferrer"
+            >YouTube에서 보기 ↗</a
+          >
+        </div>
+      </div>
+    </dialog>
+  </body>
 </html>
