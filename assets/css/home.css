@@ -1139,3 +1139,22 @@ dialog > p {
     line-height: 1.8;
   }
 }
+
+/* footer link row on narrow desktops: keep each link on one line and move the copyright below */
+@media (min-width: 761px) and (max-width: 960px) {
+  .footer-inner {
+    flex-wrap: wrap;
+    gap: 14px 26px;
+  }
+  .footer .brand {
+    margin-right: auto;
+  }
+  .footer-inner > span {
+    order: 5;
+    width: 100%;
+    margin-right: 0;
+  }
+  .footer-inner > a:not(.brand) {
+    white-space: nowrap;
+  }
+}
