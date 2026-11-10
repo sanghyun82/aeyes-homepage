@@ -206,6 +206,16 @@ section[id] { scroll-margin-block-start: 28px; }
 .contact p { margin-block-start: 9px; color: var(--body); font-size: 18px; line-height: 1.65; }
 .contact .compatibility { font-size: 14px; }
 .contact .compatibility strong { margin-inline-start: 6px; font-weight: 650; }
+.contact-actions { display: grid; justify-items: start; gap: 9px; max-inline-size: 100%; }
+.contact-address { max-inline-size: 100%; padding: 10px 12px; border: 1px solid #c4d1e9; border-radius: 10px; background: var(--light); }
+.contact-email-label { display: block; margin-block-end: 2px; color: var(--body); font-size: 13px; font-weight: 700; }
+.contact-email-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; }
+.contact-email { color: var(--ink); font-size: 17px; font-weight: 750; user-select: all; }
+.contact-email-row button { font-family: inherit; cursor: pointer; }
+.contact-email-row button[hidden] { display: none; }
+.contact-email-row button:focus-visible { outline: 3px solid #4874ff; outline-offset: 2px; }
+.contact-copy-status { display: block; color: var(--body); font-size: 13px; }
+.contact-copy-status:not(:empty) { margin-block-start: 5px; }
 .site-footer {
   border-block-start: 1px solid var(--line);
   padding-block: 17px 20px;

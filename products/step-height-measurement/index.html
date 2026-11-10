@@ -176,7 +176,17 @@
         <p>사용 중인 측정기와 검사 조건을 알려주세요.</p>
         <p class="compatibility">지원 장비 <strong>Mitutoyo(미쓰도요·미스도요) 543-700 + USB-ITN</strong></p>
       </div>
-      <a class="button button-primary" href="mailto:shjoo@aeyes.co.kr?subject=AEYES%20%EB%8B%A8%EC%B0%A8%20%EC%B8%A1%EC%A0%95%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">도입 문의 <span class="arrow" aria-hidden="true">→</span></a>
+      <div class="contact-actions">
+        <a class="button button-primary" href="mailto:shjoo@aeyes.co.kr?subject=AEYES%20%EB%8B%A8%EC%B0%A8%20%EC%B8%A1%EC%A0%95%20%EB%8F%84%EC%9E%85%20%EB%AC%B8%EC%9D%98">도입 문의 <span class="arrow" aria-hidden="true">→</span></a>
+        <div class="contact-address">
+          <span class="contact-email-label">문의 이메일</span>
+          <div class="contact-email-row">
+            <span id="inquiry-email" class="contact-email">shjoo@aeyes.co.kr</span>
+            <button id="copy-inquiry-email" class="button button-outline button-small" type="button" aria-label="문의 이메일 주소 복사" hidden>복사</button>
+          </div>
+          <span id="inquiry-copy-status" class="contact-copy-status" role="status"></span>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -189,5 +199,25 @@
       <a href="mailto:shjoo@aeyes.co.kr">shjoo@aeyes.co.kr</a>
     </nav>
   </footer>
+  <script>
+    const inquiryEmail = document.getElementById("inquiry-email");
+    const copyInquiryEmail = document.getElementById("copy-inquiry-email");
+    const inquiryCopyStatus = document.getElementById("inquiry-copy-status");
+
+    copyInquiryEmail.hidden = false;
+    copyInquiryEmail.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(inquiryEmail.textContent.trim());
+        inquiryCopyStatus.textContent = "이메일 주소를 복사했습니다.";
+      } catch {
+        const selection = window.getSelection();
+        const addressRange = document.createRange();
+        addressRange.selectNodeContents(inquiryEmail);
+        selection.removeAllRanges();
+        selection.addRange(addressRange);
+        inquiryCopyStatus.textContent = "선택한 주소를 복사해 주세요.";
+      }
+    });
+  </script>
 </body>
 </html>
