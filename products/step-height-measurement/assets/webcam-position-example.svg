@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="660" height="290" viewBox="0 0 660 290">
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1">
+      <stop stop-color="#14213a"/>
+      <stop offset="1" stop-color="#233856"/>
+    </linearGradient>
+    <linearGradient id="top" x2="1" y2="1">
+      <stop stop-color="#e2ebf8"/>
+      <stop offset="1" stop-color="#8ca6c7"/>
+    </linearGradient>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M 28 0 H 0 V 28" fill="none" stroke="#6680a7" stroke-opacity=".22"/>
+    </pattern>
+  </defs>
+  <path fill="url(#ground)" d="M0 0h660v290H0z"/>
+  <path fill="url(#grid)" d="M0 0h660v290H0z"/>
+  <path d="M 30 61 V 28 H 65 M 595 28 H 630 V 61 M 30 230 V 262 H 65 M 595 262 H 630 V 230" fill="none" stroke="#99b4dc" stroke-opacity=".68" stroke-width="2"/>
+  <path d="M 111 213 L 340 256 L 553 190 L 318 149 Z" fill="#090f1e" opacity=".55"/>
+  <path d="M 124 139 L 287 93 L 418 116 L 255 162 Z" fill="#a0b3cf" stroke="#b9c9de" stroke-width="2"/>
+  <path d="M 124 139 L 255 162 L 255 213 L 124 190 Z" fill="#6882a5" stroke="#829ab9" stroke-width="2"/>
+  <path d="M 255 162 L 418 116 L 418 167 L 255 213 Z" fill="#465e81" stroke="#758eb1" stroke-width="2"/>
+  <path d="M 255 140 L 418 93 L 538 116 L 375 163 Z" fill="url(#top)" stroke="#d7e4f6" stroke-width="2"/>
+  <path d="M 255 140 L 375 163 L 375 233 L 255 213 Z" fill="#7f9abe" stroke="#9db0cb" stroke-width="2"/>
+  <path d="M 375 163 L 538 116 L 538 186 L 375 233 Z" fill="#58729a" stroke="#8199be" stroke-width="2"/>
+  <path d="M 284 142 L 426 103 M 308 148 L 451 108 M 334 153 L 477 112" stroke="#d6e2f1" stroke-opacity=".65"/>
+  <circle cx="361" cy="136" r="20" fill="#0e2345" fill-opacity=".28" stroke="#b5d8ff" stroke-width="2"/>
+  <path d="M 337 136 h 48 M 361 112 v 48 M 374 122 L 420 65 H 454" fill="none" stroke="#bee2ff" stroke-width="2"/>
+  <circle cx="361" cy="136" r="4" fill="#fff"/>
+  <rect x="451" y="42" width="157" height="48" rx="8" fill="#f1f6ff"/>
+  <text x="465" y="72" font-family="Segoe UI, sans-serif" font-size="17" font-weight="650" fill="#152b4d">P01</text>
+  <text x="512" y="72" font-family="Segoe UI, sans-serif" font-size="15" font-weight="600" fill="#234ddb">+0.0090 mm</text>
+</svg>
